@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+
+<log_account string="Provider=SQLOLEDB;Password=SQL_DB_PASSWORD;User ID=SQL_DB_USER;Initial Catalog=RustyHearts_Log;Data Source=SQL_DB_SERVER" timeout="5000"/>
+<log_item string="Provider=SQLOLEDB;Password=SQL_DB_PASSWORD;User ID=SQL_DB_USER;Initial Catalog=RustyHearts_Log;Data Source=SQL_DB_SERVER" timeout="5000"/>
+<log_pet string="Provider=SQLOLEDB;Password=SQL_DB_PASSWORD;User ID=SQL_DB_USER;Initial Catalog=RustyHearts_Log;Data Source=SQL_DB_SERVER" timeout="5000"/>
+<log_loginout string="Provider=SQLOLEDB;Password=SQL_DB_PASSWORD;User ID=SQL_DB_USER;Initial Catalog=RustyHearts_Log;Data Source=SQL_DB_SERVER" timeout="5000"/>
+<dbc_game string="Provider=SQLOLEDB;Password=SQL_DB_PASSWORD;User ID=SQL_DB_USER;Initial Catalog=RustyHearts;Data Source=SQL_DB_SERVER" timeout="5000"/>
+<dbc_log string="Provider=SQLOLEDB;Password=SQL_DB_PASSWORD;User ID=SQL_DB_USER;Initial Catalog=RustyHearts_Log;Data Source=SQL_DB_SERVER" timeout="5000"/>
+<dbc_chat string="Provider=SQLOLEDB;Password=SQL_DB_PASSWORD;User ID=SQL_DB_USER;Initial Catalog=RustyHearts_Log;Data Source=SQL_DB_SERVER" timeout="5000"/>
+<dbc_emergency string="Provider=SQLOLEDB;Password=SQL_DB_PASSWORD;User ID=SQL_DB_USER;Initial Catalog=RustyHearts_Log;Data Source=SQL_DB_SERVER" timeout="5000"/>
+
+<agentmanagers ip="127.0.0.1" port="51091" code="900" send_time_second="5" />
+<auction ip="127.0.0.1" port="51053" code="101" />
+<manager ip="127.0.0.1" port="51051" code="91" />
+<match ip="127.0.0.1" port="51054" code="111" />
+<gm ip="127.0.0.1" port="51002" code="71" />

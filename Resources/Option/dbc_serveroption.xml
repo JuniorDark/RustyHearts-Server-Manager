@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<server name="DBC_GAME_1" private_ip="127.0.0.1" public_ip="" code="1" private_port="51055" public_port="0" public_udpport="0" world="10101" agent="1" />
+<dbc write_thread_count="3" world="10101"/>
+<agent_server ip="127.0.0.1" port="51060" code="800" />
+
+
+<db_account string="Provider=SQLOLEDB;Password=SQL_DB_PASSWORD;User ID=SQL_DB_USER;Initial Catalog=RustyHearts_Auth;Data Source=SQL_DB_SERVER" timeout="5000"/>
+<db_web string="Provider=SQLOLEDB;Password=SQL_DB_PASSWORD;User ID=SQL_DB_USER;Initial Catalog=RustyHearts_Auth;Data Source=SQL_DB_SERVER" timeout="5000"/>
+<db_game string="Provider=SQLOLEDB;Password=SQL_DB_PASSWORD;User ID=SQL_DB_USER;Initial Catalog=RustyHearts;Data Source=SQL_DB_SERVER" timeout="5000"/>
+<db_log string="Provider=SQLOLEDB;Password=SQL_DB_PASSWORD;User ID=SQL_DB_USER;Initial Catalog=RustyHearts_Log;Data Source=SQL_DB_SERVER" timeout="5000"/>
+<db_game_log string="Provider=SQLOLEDB;Password=SQL_DB_PASSWORD;User ID=SQL_DB_USER;Initial Catalog=RustyHearts_Log;Data Source=SQL_DB_SERVER" timeout="5000"/>
+
+<auto />
+<setting multi="1" />

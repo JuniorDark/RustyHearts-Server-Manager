@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+
+<log>
+	<log_type use="1" id="0" name = "LOG_CONNECTION" />
+	<log_type use="1" id="1" name = "LOG_SRV_SELECT" />
+	<log_type use="1" id="2" name = "LOG_CH_SELECT" />
+	<log_type use="1" id="3" name = "LOG_IN_OUT" />
+	<log_type use="1" id="4" name = "LOG_PLAY_TIME" />
+	<log_type use="1" id="5" name = "LOG_DUNGEON_CLEAR" />
+	<log_type use="1" id="6" name = "LOG_LEVEL_UP" />
+	<log_type use="1" id="7" name = "LOG_CHAR_IN" />
+	<log_type use="1" id="8" name = "LOG_CHAR_IN_DUNGEON" />
+	<log_type use="1" id="9" name = "LOG_DUNGEON" />
+	<log_type use="1" id="10" name = "LOG_SKILL_LEARN" />
+	<log_type use="1" id="11" name = "LOG_GOLD" />
+	<log_type use="1" id="12" name = "LOG_ITEM" />
+	<log_type use="1" id="13" name = "LOG_ITEM_ENCHANT" />
+	<log_type use="1" id="14" name = "LOG_CHAT" />
+	<log_type use="1" id="15" name = "LOG_MAIL" />
+	<log_type use="1" id="16" name = "LOG_CASH_BUY" />
+	<log_type use="1" id="17" name = "LOG_QUEST" />
+</log>
