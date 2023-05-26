@@ -14,8 +14,8 @@
     <Authors>JuniorDark</Authors>
     <Company>JuniorDark</Company>
     <Product>RH Server Manager</Product>
-    <AssemblyVersion>1.0.0</AssemblyVersion>
-    <FileVersion>1.0.0</FileVersion>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
+    <FileVersion>1.0.1</FileVersion>
     <AssemblyName>RH Server Manager</AssemblyName>
 	<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
   </PropertyGroup>

@@ -587,6 +587,15 @@ namespace RHServerManager
                 textBoxServerDir.Text = fbd.SelectedPath;
             }
 
+            dirServer = textBoxServerDir.Text;
+            string serverFilePath = Path.Combine(dirServer, "Agent_Release_x64.exe");
+
+            if (!File.Exists(serverFilePath))
+            {
+                MessageBox.Show("Invalid Server folder.\nPlease select the server folder with the server executables.", "Invalid Folder", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             LoadContentXml();
         }
 
