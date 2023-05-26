@@ -1663,14 +1663,14 @@ namespace RHServerManager
                 // Find the highest diff value for the selected dungeon
                 int highestDiff = dungeonSettingsList
                     .Where(d => d["name"] == selectedDungeonName)
-                    .Select(d => int.Parse(d["diff"]))
+                    .Select(d => d.ContainsKey("diff") ? int.Parse(d["diff"]) : 0)
                     .Max();
 
                 // Increment the highest diff value by 1 to get the next available diff
                 int newDiff = highestDiff + 1;
 
                 // Check if the new diff already exists, increment it until a unique diff is found
-                while (dungeonSettingsList.Any(d => d["name"] == selectedDungeonName && int.Parse(d["diff"]) == newDiff))
+                while (dungeonSettingsList.Any(d => d.ContainsKey("name") && d["name"] == selectedDungeonName && d.ContainsKey("diff") && int.Parse(d["diff"]) == newDiff))
                 {
                     newDiff++;
                 }
