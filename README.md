@@ -14,7 +14,7 @@ To get started with this tool, simply download the latest release from the GitHu
 - **Server Configuration:** Easily configure various server settings such as player limits, level cap, and more.
 - **API Configuration:** Configure the [Rusty Hearts API](https://github.com/JuniorDark/RustyHearts-API) settings, including authentication credentials, endpoint URLs, and settings.
 - **Server Startup:** Start the servers/API with a single button, ensuring that the configured settings are applied correctly.
-- **Backup and Restore:** Create backups of the databses and restore them when needed.
+- **Backup and Restore:** Create backups of the databases and restore them when needed.
 
 ## Preview
 ![image](preview/preview-01.png)
@@ -24,7 +24,7 @@ To get started with this tool, simply download the latest release from the GitHu
 ![image](preview/preview-05.png)
 
 ## Prerequisites for Building Locally/Development
-The tool is built in .NET 7 and as such, the packages listed below are required to create a local and development build of the launcher. Furthermore, it uses many submodules and packages outside of this, which will automatically be loaded when the user sets up a local environment of the application.
+The tool is built in .NET 7 and as such, the packages listed below are required to create a local and development build of the tool. Furthermore, it uses many submodules and packages outside of this, which will automatically be loaded when the user sets up a local environment of the application.
 * Visual Studio 2022 (Any Edition - 17.4 or later)
 * Windows 10 SDK (10.0.19043.0) or Windows 11 SDK (10.0.22000.0) via Visual Studio Installer
 * .NET: [.NET Core 7 SDK (7.0.100 or later)](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
