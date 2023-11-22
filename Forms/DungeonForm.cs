@@ -3,16 +3,15 @@
     public partial class DungeonForm : Form
     {
 
-        private readonly Form1 mainForm;
-        public DungeonForm(Form1 form)
+        private readonly MainForm? mainForm;
+        private readonly Dictionary<string, string>? dungeonSettings;
+        private readonly bool isEditMode;
+
+        public DungeonForm(MainForm form)
         {
             InitializeComponent();
             mainForm = form;
         }
-
-        private Dictionary<string, string> dungeonSettings;
-
-        private readonly bool isEditMode;
 
         public DungeonForm(Dictionary<string, string> settings, bool editMode)
         {
@@ -39,18 +38,21 @@
         public Dictionary<string, string> GetDungeonSettings()
         {
             // Retrieve the edited values from the form controls and update the dungeon settings
-            dungeonSettings["use"] = checkBoxUseDungeon.Checked ? "1" : "0";
-            dungeonSettings["id"] = dungeonIDTextBox.Text;
-            dungeonSettings["name"] = dungeonNameTextBox.Text;
-            dungeonSettings["diff"] = numericUpDownDungeonDiff.Value.ToString();
-            dungeonSettings["delay"] = dungeonDelayTextBox.Text;
-            dungeonSettings["combo"] = numericUpDownDungeonCombo.Value.ToString();
-            dungeonSettings["hp"] = dungeonHPTextBox.Text;
-            dungeonSettings["attack"] = numericUpDownDungeonAttack.Value.ToString();
-            dungeonSettings["range_delay"] = rangeDelayTextBox.Text;
-            dungeonSettings["range_combo"] = rangeComboTextBox.Text;
-            dungeonSettings["range_hp"] = rangeHPTextBox.Text;
-            dungeonSettings["range_attack"] = numericUpDownRangeAttack.Value.ToString();
+            Dictionary<string, string> dungeonSettings = new()
+            {
+                ["use"] = checkBoxUseDungeon.Checked ? "1" : "0",
+                ["id"] = dungeonIDTextBox.Text,
+                ["name"] = dungeonNameTextBox.Text,
+                ["diff"] = numericUpDownDungeonDiff.Value.ToString(),
+                ["delay"] = dungeonDelayTextBox.Text,
+                ["combo"] = numericUpDownDungeonCombo.Value.ToString(),
+                ["hp"] = dungeonHPTextBox.Text,
+                ["attack"] = numericUpDownDungeonAttack.Value.ToString(),
+                ["range_delay"] = rangeDelayTextBox.Text,
+                ["range_combo"] = rangeComboTextBox.Text,
+                ["range_hp"] = rangeHPTextBox.Text,
+                ["range_attack"] = numericUpDownRangeAttack.Value.ToString()
+            };
 
             return dungeonSettings;
         }
@@ -60,7 +62,7 @@
             return dungeonNameTextBox.Text;
         }
 
-        private void buttonConfirm_Click(object sender, EventArgs e)
+        private void ButtonConfirm_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(dungeonNameTextBox.Text))
             {
@@ -86,7 +88,7 @@
             RangeHP = rangeHPTextBox.Text;
             RangeAttack = numericUpDownRangeAttack.Text;
 
-            if (!isEditMode && mainForm.DungeonExists(DungeonName, Diff))
+            if (!isEditMode && mainForm?.DungeonExists(DungeonName, Diff) == true)
             {
                 MessageBox.Show($"Dungeon {DungeonName} with difficulty {Diff} already exists.", "Duplicate Dungeon", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -96,7 +98,7 @@
             Close();
         }
 
-        private void buttonCancel_Click(object sender, EventArgs e)
+        private void ButtonCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             Close();

@@ -78,7 +78,7 @@
             buttonCancel.TabIndex = 66;
             buttonCancel.Text = "Cancel";
             buttonCancel.UseVisualStyleBackColor = true;
-            buttonCancel.Click += buttonCancel_Click;
+            buttonCancel.Click += ButtonCancel_Click;
             // 
             // buttonConfirm
             // 
@@ -88,7 +88,7 @@
             buttonConfirm.TabIndex = 65;
             buttonConfirm.Text = "Add ";
             buttonConfirm.UseVisualStyleBackColor = true;
-            buttonConfirm.Click += buttonConfirm_Click;
+            buttonConfirm.Click += ButtonConfirm_Click;
             // 
             // numericUpDownRangeAttack
             // 

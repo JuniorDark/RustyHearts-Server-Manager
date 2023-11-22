@@ -11,7 +11,7 @@ To get started with this tool, simply download the latest release from the GitHu
 
 ## Features
 
-- **Server Configuration:** Easily configure various server settings such as player limits, level cap, and more.
+- **Server Configuration:** Easily configure various server settings, player limits, level cap, and more.
 - **API Configuration:** Configure the [Rusty Hearts API](https://github.com/JuniorDark/RustyHearts-API) settings, including authentication credentials, endpoint URLs, and settings.
 - **Server Startup:** Start the servers/API with a single button, ensuring that the configured settings are applied correctly.
 - **Backup and Restore:** Create backups of the databases and restore them when needed.

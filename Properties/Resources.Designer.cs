@@ -62,11 +62,11 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server code=&quot;800&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;agent_server&quot; private_ip=&quot;127.0.0.1&quot; private_port=&quot;51060&quot; public_ip=&quot;&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; thread_num=&quot;2&quot; session_count=&quot;10&quot; debug=&quot;0&quot; ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; /&gt;
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;msg_server ip=&quot;127.0.0.1&quot; port=&quot;51052&quot; co [rest of string was truncated]&quot;;.
+        ///&lt;server code=&quot;800&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;agent_server&quot; private_ip=&quot;PRIVATE_IP&quot; private_port=&quot;51060&quot; public_ip=&quot;&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; thread_num=&quot;2&quot; session_count=&quot;10&quot; debug=&quot;0&quot; ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; /&gt;
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;msg_server ip=&quot;PRIVATE_IP&quot; port=&quot;510 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string agent {
             get {
@@ -76,13 +76,13 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server code=&quot;800&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;AGENT_800&quot; private_ip=&quot;127.0.0.1&quot; private_port=&quot;51060&quot; public_ip =&quot;&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; thread_num=2 session_count=10 debug=&quot;0&quot;/&gt;
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;server code=&quot;800&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;AGENT_800&quot; private_ip=&quot;PRIVATE_IP&quot; private_port=&quot;51060&quot; public_ip =&quot;&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; thread_num=2 session_count=10 debug=&quot;0&quot;/&gt;
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
         ///
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;msg_server ip=&quot;127.0.0.1&quot; port=&quot;51052&quot; code=&quot;61&quot; /&gt;
-        ///&lt;gm_server ip=&quot;127.0.0. [rest of string was truncated]&quot;;.
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;msg_server ip=&quot;PRIVATE_IP&quot; port=&quot;51052&quot; code=&quot;61&quot; /&gt;
+        ///&lt;gm_server ip=&quot;PRI [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AGENT_800 {
             get {
@@ -92,13 +92,13 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server code=&quot;800&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;agent_server&quot; private_ip=&quot;YOUR_WAN_IP&quot; private_port=&quot;51060&quot; public_ip =&quot;&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; thread_num=2 session_count=10 debug=&quot;0&quot;/&gt;
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;server code=&quot;800&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;agent_server&quot; private_ip=&quot;PRIVATE_IP&quot; private_port=&quot;51060&quot; public_ip =&quot;&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; thread_num=2 session_count=10 debug=&quot;0&quot;/&gt;
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
         ///
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;chat ip=&quot;127.0.0.1&quot; port=&quot;51057&quot; code=&quot;3&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;emerge [rest of string was truncated]&quot;;.
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;chat ip=&quot;PRIVATE_IP&quot; port=&quot;51057&quot; code=&quot;3&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;eme [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string agent_serveroption {
             get {
@@ -108,14 +108,14 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server code=&quot;900&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;agentmanager&quot; private_ip=&quot;127.0.0.1&quot; private_port=&quot;51091&quot; public_ip=&quot;YOUR_WAN_IP&quot; public_port=&quot;50091&quot; debug=&quot;0&quot;/&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;server code=&quot;900&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;agentmanager&quot; private_ip=&quot;PRIVATE_IP&quot; private_port=&quot;51091&quot; public_ip=&quot;PUBLIC_IP&quot; public_port=&quot;50091&quot; debug=&quot;0&quot;/&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;msg_server ip=&quot;127.0.0.1&quot; port=&quot;51052&quot; code=&quot;61&quot; /&gt;
-        ///&lt;gm_server ip=&quot;127.0.0.1&quot; port=&quot;51002&quot; code=&quot;71&quot; /&gt;
-        ///&lt;gate_server ip=&quot;127.0.0 [rest of string was truncated]&quot;;.
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;msg_server ip=&quot;PRIVATE_IP&quot; port=&quot;51052&quot; code=&quot;61&quot; /&gt;
+        ///&lt;gm_server ip=&quot;PRIVATE_IP&quot; port=&quot;51002&quot; code=&quot;71&quot; /&gt;
+        ///&lt;gate_server ip=&quot;PRI [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AGENTMANAGER_900 {
             get {
@@ -125,14 +125,14 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server code=&quot;900&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;agentmanager&quot; private_ip=&quot;127.0.0.1&quot; private_port=&quot;51091&quot; public_ip=&quot;YOUR_WAN_IP&quot; public_port=&quot;50091&quot; debug=&quot;0&quot;/&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;server code=&quot;900&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;agentmanager&quot; private_ip=&quot;PRIVATE_IP&quot; private_port=&quot;51091&quot; public_ip=&quot;PUBLIC_IP&quot; public_port=&quot;50091&quot; debug=&quot;0&quot;/&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;msg_server ip=&quot;127.0.0.1&quot; port=&quot;51052&quot; code=&quot;61&quot; /&gt;
-        ///&lt;gm_server ip=&quot;127.0.0.1&quot; port=&quot;51002&quot; code=&quot;71&quot; /&gt;
-        ///&lt;gate_server ip=&quot;127.0.0 [rest of string was truncated]&quot;;.
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;msg_server ip=&quot;PRIVATE_IP&quot; port=&quot;51052&quot; code=&quot;61&quot; /&gt;
+        ///&lt;gm_server ip=&quot;PRIVATE_IP&quot; port=&quot;51002&quot; code=&quot;71&quot; /&gt;
+        ///&lt;gate_server ip=&quot;PRI [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string agentmanager_serveroption {
             get {
@@ -142,13 +142,13 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server code=&quot;101&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;auction_server&quot; private_ip=&quot;127.0.0.1&quot; private_port=&quot;51053&quot; public_ip =&quot;&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; debug=&quot;0&quot;/&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;server code=&quot;101&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;auction_server&quot; private_ip=&quot;PRIVATE_IP&quot; private_port=&quot;51053&quot; public_ip =&quot;&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; debug=&quot;0&quot;/&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;msg_server ip=&quot;127.0.0.1&quot; port=&quot;51052&quot; code= [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;msg_server ip=&quot;PRIVATE_IP&quot; port=&quot;51052&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AUCTION_101 {
             get {
@@ -158,13 +158,13 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server code=&quot;101&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;auction_server&quot; private_ip=&quot;127.0.0.1&quot; private_port=&quot;51053&quot; public_ip =&quot;&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; debug=&quot;0&quot;/&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;server code=&quot;101&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;auction_server&quot; private_ip=&quot;PRIVATE_IP&quot; private_port=&quot;51053&quot; public_ip =&quot;&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; debug=&quot;0&quot;/&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;msg_server ip=&quot;127.0.0.1&quot; port=&quot;51052&quot; code= [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;msg_server ip=&quot;PRIVATE_IP&quot; port=&quot;51052&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string auction_serveroption {
             get {
@@ -188,14 +188,14 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server name=&quot;DBC_CHAT_3&quot; private_ip=&quot;127.0.0.1&quot; public_ip=&quot;&quot; code=&quot;3&quot; private_port=&quot;51057&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; world=&quot;10101&quot; agent=&quot;1&quot; /&gt;
+        ///&lt;server name=&quot;DBC_CHAT_3&quot; private_ip=&quot;PRIVATE_IP&quot; public_ip=&quot;&quot; code=&quot;3&quot; private_port=&quot;51057&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; world=&quot;10101&quot; agent=&quot;1&quot; /&gt;
         ///&lt;dbc write_thread_count=&quot;3&quot; world=&quot;10101&quot;/&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;msg_server ip=&quot;127.0.0.1&quot; port=&quot;51052&quot; code=&quot;61&quot; /&gt;
-        ///&lt;gm_server ip=&quot;127.0.0.1&quot; port=&quot;5100 [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;msg_server ip=&quot;PRIVATE_IP&quot; port=&quot;51052&quot; code=&quot;61&quot; /&gt;
+        ///&lt;gm_server ip=&quot;PRIVATE_IP&quot; port [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DBC_CHAT_3 {
             get {
@@ -205,14 +205,14 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server name=&quot;DBC_EMERGENCY_4&quot; private_ip=&quot;127.0.0.1&quot; public_ip=&quot;&quot; code=&quot;4&quot; private_port=&quot;51058&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; world=&quot;10101&quot; agent=&quot;1&quot; /&gt;
+        ///&lt;server name=&quot;DBC_EMERGENCY_4&quot; private_ip=&quot;PRIVATE_IP&quot; public_ip=&quot;&quot; code=&quot;4&quot; private_port=&quot;51058&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; world=&quot;10101&quot; agent=&quot;1&quot; /&gt;
         ///&lt;dbc write_thread_count=&quot;3&quot; world=&quot;10101&quot;/&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;msg_server ip=&quot;127.0.0.1&quot; port=&quot;51052&quot; code=&quot;61&quot; /&gt;
-        ///&lt;gm_server ip=&quot;127.0.0.1&quot; port= [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;msg_server ip=&quot;PRIVATE_IP&quot; port=&quot;51052&quot; code=&quot;61&quot; /&gt;
+        ///&lt;gm_server ip=&quot;PRIVATE_IP&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DBC_EMERGENCY_4 {
             get {
@@ -222,14 +222,14 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server name=&quot;DBC_GAME_1&quot; private_ip=&quot;127.0.0.1&quot; public_ip=&quot;&quot; code=&quot;1&quot; private_port=&quot;51055&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; world=&quot;10101&quot; agent=&quot;1&quot; /&gt;
+        ///&lt;server name=&quot;DBC_GAME_1&quot; private_ip=&quot;PRIVATE_IP&quot; public_ip=&quot;&quot; code=&quot;1&quot; private_port=&quot;51055&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; world=&quot;10101&quot; agent=&quot;1&quot; /&gt;
         ///&lt;dbc write_thread_count=&quot;3&quot; world=&quot;10101&quot;/&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;msg_server ip=&quot;127.0.0.1&quot; port=&quot;51052&quot; code=&quot;61&quot; /&gt;
-        ///&lt;gm_server ip=&quot;127.0.0.1&quot; port=&quot; [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;msg_server ip=&quot;PRIVATE_IP&quot; port=&quot;51052&quot; code=&quot;61&quot; /&gt;
+        ///&lt;gm_server ip=&quot;PRIVATE_IP&quot;  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DBC_GAME_1 {
             get {
@@ -239,13 +239,13 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server name=&quot;DBC_LOG_2&quot; private_ip=&quot;127.0.0.1&quot; public_ip=&quot;&quot; code=&quot;2&quot; private_port=&quot;51056&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; world=&quot;10101&quot; agent=&quot;1&quot; /&gt;
+        ///&lt;server name=&quot;DBC_LOG_2&quot; private_ip=&quot;PRIVATE_IP&quot; public_ip=&quot;&quot; code=&quot;2&quot; private_port=&quot;51056&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; world=&quot;10101&quot; agent=&quot;1&quot; /&gt;
         ///&lt;dbc write_thread_count=&quot;3&quot; world=&quot;10101&quot;/&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
         ///
         ///&lt;db_account string=&quot;Provider=SQLOLEDB;Password=SQL_DB_PASSWORD;User ID=SQL_DB_USER;Initial Catalog=RustyHearts_Auth;Data Source=SQL_DB_SERVER&quot; timeout=&quot;5000&quot;/&gt;
-        ///&lt;db_web string=&quot;Provider=SQLOLEDB;Password=SQL_DB_PASSWORD;User ID=SQL_DB_ [rest of string was truncated]&quot;;.
+        ///&lt;db_web string=&quot;Provider=SQLOLEDB;Password=SQL_DB_PASSWORD;User ID=SQL_D [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DBC_LOG_2 {
             get {
@@ -255,13 +255,13 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server name=&quot;DBC_GAME_1&quot; private_ip=&quot;127.0.0.1&quot; public_ip=&quot;&quot; code=&quot;1&quot; private_port=&quot;51055&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; world=&quot;10101&quot; agent=&quot;1&quot; /&gt;
+        ///&lt;server name=&quot;DBC_GAME_1&quot; private_ip=&quot;PRIVATE_IP&quot; public_ip=&quot;&quot; code=&quot;1&quot; private_port=&quot;51055&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; world=&quot;10101&quot; agent=&quot;1&quot; /&gt;
         ///&lt;dbc write_thread_count=&quot;3&quot; world=&quot;10101&quot;/&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
         ///
         ///&lt;db_account string=&quot;Provider=SQLOLEDB;Password=SQL_DB_PASSWORD;User ID=SQL_DB_USER;Initial Catalog=RustyHearts_Auth;Data Source=SQL_DB_SERVER&quot; timeout=&quot;5000&quot;/&gt;
-        ///&lt;db_web string=&quot;Provider=SQLOLEDB;Password=SQL_DB_PASSWORD;User ID=SQL_DB [rest of string was truncated]&quot;;.
+        ///&lt;db_web string=&quot;Provider=SQLOLEDB;Password=SQL_DB_PASSWORD;User ID=SQL_ [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string dbc_serveroption {
             get {
@@ -272,15 +272,15 @@ namespace RHServerManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
         ///
-        ///&lt;server code=&quot;2&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;db_log_cache&quot; private_ip=&quot;127.0.0.1&quot; private_port=&quot;51056&quot; debug=&quot;0&quot;/&gt;
+        ///&lt;server code=&quot;2&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;db_log_cache&quot; private_ip=&quot;PRIVATE_IP&quot; private_port=&quot;51056&quot; debug=&quot;0&quot;/&gt;
         ///&lt;dbc write_thread_count=&quot;8&quot; /&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;msg_server ip=&quot;127.0.0.1&quot; port=&quot;51052&quot; code=&quot;61&quot; /&gt;
-        ///&lt;gm_server ip=&quot;127.0.0.1&quot; port=&quot;51002&quot; code=&quot;71&quot; /&gt;
-        ///&lt;gate_server ip=&quot;127.0.0.1&quot; port= [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;msg_server ip=&quot;PRIVATE_IP&quot; port=&quot;51052&quot; code=&quot;61&quot; /&gt;
+        ///&lt;gm_server ip=&quot;PRIVATE_IP&quot; port=&quot;51002&quot; code=&quot;71&quot; /&gt;
+        ///&lt;gate_server ip=&quot;PRIVATE_IP [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string dbc_serveroptionlog {
             get {
@@ -290,14 +290,14 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server name=&quot;DUNGEON_2001&quot; private_ip=&quot;&quot; public_ip=&quot;YOUR_WAN_IP&quot; code=&quot;2001&quot; private_port=&quot;0&quot; public_port=&quot;50016&quot; public_udpport=&quot;0&quot; world=&quot;10101&quot; agent=&quot;1&quot; /&gt;
+        ///&lt;server name=&quot;DUNGEON_2001&quot; private_ip=&quot;&quot; public_ip=&quot;PUBLIC_IP&quot; code=&quot;2001&quot; private_port=&quot;0&quot; public_port=&quot;50016&quot; public_udpport=&quot;0&quot; world=&quot;10101&quot; agent=&quot;1&quot; /&gt;
         ///&lt;develop preload=&quot;1&quot; preload_char=&quot;1&quot; /&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;msg_server i [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;msg_server [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DUNGEON_2001 {
             get {
@@ -307,14 +307,14 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server code=&quot;2001&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;dungeon_server&quot; private_ip=&quot;&quot; private_port=&quot;0&quot; public_ip=&quot;YOUR_WAN_IP&quot; public_port=&quot;50016&quot; debug=&quot;0&quot;/&gt;
+        ///&lt;server code=&quot;2001&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;dungeon_server&quot; private_ip=&quot;&quot; private_port=&quot;0&quot; public_ip=&quot;PUBLIC_IP&quot; public_port=&quot;50016&quot; debug=&quot;0&quot;/&gt;
         ///&lt;develop preload=&quot;1&quot; preload_char=&quot;1&quot; /&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;msg_server ip=&quot;127.0 [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;msg_server ip=&quot;PRI [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string dungeon_serveroption {
             get {
@@ -333,12 +333,12 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server code=&quot;21001&quot; agent=&quot;21001&quot; world=&quot;10101&quot; name=&quot;lobby_server&quot; private_ip=&quot;127.0.0.1&quot; private_port=&quot;51006&quot; public_ip =&quot;YOUR_WAN_IP&quot; public_port=&quot;50006&quot; public_udpport=&quot;0&quot; thread_num=2 session_count=10 debug=&quot;0&quot;/&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;server code=&quot;21001&quot; agent=&quot;21001&quot; world=&quot;10101&quot; name=&quot;lobby_server&quot; private_ip=&quot;PRIVATE_IP&quot; private_port=&quot;51006&quot; public_ip =&quot;PUBLIC_IP&quot; public_port=&quot;50006&quot; public_udpport=&quot;0&quot; thread_num=2 session_count=10 debug=&quot;0&quot;/&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count= [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string game_serveroption {
             get {
@@ -348,14 +348,14 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server code=&quot;81&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;GATE_81&quot; private_ip=&quot;127.0.0.1&quot; private_port=&quot;50008&quot; public_ip =&quot;YOUR_WAN_IP&quot; public_port=&quot;50001&quot; public_udpport=&quot;0&quot; debug=&quot;0&quot;/&gt;
+        ///&lt;server code=&quot;81&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;GATE_81&quot; private_ip=&quot;PRIVATE_IP&quot; private_port=&quot;50008&quot; public_ip =&quot;PUBLIC_IP&quot; public_port=&quot;50001&quot; public_udpport=&quot;0&quot; debug=&quot;0&quot;/&gt;
         ///&lt;dbc write_thread_count=&quot;3&quot; world=&quot;10101&quot;/&gt;
         ///&lt;auto /&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; sessio [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; ses [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string GATE_81 {
             get {
@@ -365,14 +365,14 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server code=&quot;81&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;gate_server&quot; private_ip=&quot;127.0.0.1&quot; private_port=&quot;50008&quot; public_ip =&quot;YOUR_WAN_IP&quot; public_port=&quot;50001&quot; public_udpport=&quot;0&quot; debug=&quot;0&quot;/&gt;
+        ///&lt;server code=&quot;81&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;gate_server&quot; private_ip=&quot;PRIVATE_IP&quot; private_port=&quot;50008&quot; public_ip =&quot;PUBLIC_IP&quot; public_port=&quot;50001&quot; public_udpport=&quot;0&quot; debug=&quot;0&quot;/&gt;
         ///&lt;dbc write_thread_count=&quot;3&quot; world=&quot;10101&quot;/&gt;
         ///&lt;auto /&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; se [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string gate_serveroption {
             get {
@@ -382,13 +382,13 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server name=&quot;GM_71&quot; private_ip=&quot;127.0.0.1&quot; public_ip=&quot;YOUR_WAN_IP&quot; code=&quot;71&quot; private_port=&quot;51002&quot; public_port=&quot;50002&quot; public_udpport=&quot;0&quot; world=&quot;10101&quot; agent=&quot;1&quot; /&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;server name=&quot;GM_71&quot; private_ip=&quot;PRIVATE_IP&quot; public_ip=&quot;PUBLIC_IP&quot; code=&quot;71&quot; private_port=&quot;51002&quot; public_port=&quot;50002&quot; public_udpport=&quot;0&quot; world=&quot;10101&quot; agent=&quot;1&quot; /&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;msg_server ip=&quot;127.0.0.1&quot; port=&quot;51052&quot; code=&quot;61&quot;  [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;msg_server ip=&quot;PRIVATE_IP&quot; port=&quot;51052&quot; code=&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string GM_71 {
             get {
@@ -398,13 +398,13 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server code=&quot;71&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;gm_server&quot; private_ip=&quot;127.0.0.1&quot; private_port=&quot;51002&quot; public_ip =&quot;YOUR_WAN_IP&quot; public_port=&quot;50002&quot; public_udpport=&quot;0&quot; debug=&quot;0&quot;/&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;server code=&quot;71&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;gm_server&quot; private_ip=&quot;PRIVATE_IP&quot; private_port=&quot;51002&quot; public_ip =&quot;PUBLIC_IP&quot; public_port=&quot;50002&quot; public_udpport=&quot;0&quot; debug=&quot;0&quot;/&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;msg_server ip=&quot;127.0.0.1&quot; port=&quot;510 [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;msg_server ip=&quot;PRIVATE_IP&quot; port= [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string gm_serveroption {
             get {
@@ -414,14 +414,14 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server name=&quot;GUILD_5001&quot; private_ip=&quot;127.0.0.1&quot; public_ip=&quot;YOUR_WAN_IP&quot; code=&quot;5001&quot; private_port=&quot;51003&quot; public_port=&quot;50003&quot; public_udpport=&quot;0&quot; world=&quot;10101&quot; agent=&quot;1&quot; /&gt;
+        ///&lt;server name=&quot;GUILD_5001&quot; private_ip=&quot;PRIVATE_IP&quot; public_ip=&quot;PUBLIC_IP&quot; code=&quot;5001&quot; private_port=&quot;51003&quot; public_port=&quot;50003&quot; public_udpport=&quot;0&quot; world=&quot;10101&quot; agent=&quot;1&quot; /&gt;
         ///&lt;guildlobby value=&quot;1&quot; /&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;msg_server ip=&quot;12 [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;msg_server ip= [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string GUILD_5001 {
             get {
@@ -431,14 +431,14 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server code=&quot;5001&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;guild_server&quot; private_ip=&quot;127.0.0.1&quot; private_port=&quot;51003&quot; public_ip =&quot;YOUR_WAN_IP&quot; public_port=&quot;50003&quot; public_udpport=&quot;0&quot; debug=&quot;0&quot;/&gt;
+        ///&lt;server code=&quot;5001&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;guild_server&quot; private_ip=&quot;PRIVATE_IP&quot; private_port=&quot;51003&quot; public_ip =&quot;PUBLIC_IP&quot; public_port=&quot;50003&quot; public_udpport=&quot;0&quot; debug=&quot;0&quot;/&gt;
         ///&lt;guildlobby value=&quot;1&quot; /&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;msg_s [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;ms [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string guild_serveroption {
             get {
@@ -638,13 +638,13 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server name=&quot;LOBBY_21001&quot; private_ip=&quot;127.0.0.1&quot; public_ip=&quot;YOUR_WAN_IP&quot; code=&quot;21001&quot; private_port=&quot;51006&quot; public_port=&quot;50006&quot; public_udpport=&quot;0&quot; world=&quot;10101&quot; agent=&quot;1&quot; /&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;server name=&quot;LOBBY_21001&quot; private_ip=&quot;PRIVATE_IP&quot; public_ip=&quot;PUBLIC_IP&quot; code=&quot;21001&quot; private_port=&quot;51006&quot; public_port=&quot;50006&quot; public_udpport=&quot;0&quot; world=&quot;10101&quot; agent=&quot;1&quot; /&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;msg_server ip=&quot;127.0.0.1&quot; port=&quot;51052&quot; c [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;msg_server ip=&quot;PRIVATE_IP&quot; port=&quot;5105 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string LOBBY_21001 {
             get {
@@ -654,13 +654,12 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server code=&quot;21001&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;lobby_server&quot; private_ip=&quot;127.0.0.1&quot; private_port=&quot;51006&quot; public_ip =&quot;YOUR_WAN_IP&quot; public_port=&quot;50006&quot; public_udpport=&quot;0&quot; thread_num=2 session_count=10 debug=&quot;0&quot;/&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;server code=&quot;21001&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;lobby_server&quot; private_ip=&quot;PRIVATE_IP&quot; private_port=&quot;51006&quot; public_ip =&quot;PUBLIC_IP&quot; public_port=&quot;50006&quot; public_udpport=&quot;0&quot; thread_num=2 session_count=10 debug=&quot;0&quot;/&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
-        /// [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot;  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string lobby_serveroption {
             get {
@@ -691,14 +690,14 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server name=&quot;MANAGER_91&quot; private_ip=&quot;127.0.0.1&quot; public_ip=&quot;&quot; code=&quot;91&quot; private_port=&quot;51051&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; world=&quot;10101&quot; agent=&quot;1&quot; /&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;server name=&quot;MANAGER_91&quot; private_ip=&quot;PRIVATE_IP&quot; public_ip=&quot;&quot; code=&quot;91&quot; private_port=&quot;51051&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; world=&quot;10101&quot; agent=&quot;1&quot; /&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;msg_server ip=&quot;127.0.0.1&quot; port=&quot;51052&quot; code=&quot;61&quot; /&gt;
-        ///&lt;gm_ser [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;msg_server ip=&quot;PRIVATE_IP&quot; port=&quot;51052&quot; code=&quot;61&quot; /&gt;
+        ///&lt; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string MANAGER_91 {
             get {
@@ -708,13 +707,13 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server code=&quot;91&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;manager_server&quot; private_ip=&quot;127.0.0.1&quot; private_port=&quot;51051&quot; public_ip =&quot;&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; debug=&quot;0&quot;/&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;server code=&quot;91&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;manager_server&quot; private_ip=&quot;PRIVATE_IP&quot; private_port=&quot;51051&quot; public_ip =&quot;&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; debug=&quot;0&quot;/&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;msg_server ip=&quot;127.0.0.1&quot; port=&quot;51052&quot; code=&quot; [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;msg_server ip=&quot;PRIVATE_IP&quot; port=&quot;51052&quot;  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string manager_serveroption {
             get {
@@ -724,14 +723,14 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server name=&quot;MATCH_111&quot; private_ip=&quot;127.0.0.1&quot; public_ip=&quot;&quot; code=&quot;111&quot; private_port=&quot;51054&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; world=&quot;10101&quot; agent=&quot;1&quot; /&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;server name=&quot;MATCH_111&quot; private_ip=&quot;PRIVATE_IP&quot; public_ip=&quot;&quot; code=&quot;111&quot; private_port=&quot;51054&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; world=&quot;10101&quot; agent=&quot;1&quot; /&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;msg_server ip=&quot;127.0.0.1&quot; port=&quot;51052&quot; code=&quot;61&quot; /&gt;
-        ///&lt;gm_ser [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;msg_server ip=&quot;PRIVATE_IP&quot; port=&quot;51052&quot; code=&quot;61&quot; /&gt;
+        ///&lt; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string MATCH_111 {
             get {
@@ -741,13 +740,13 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server code=&quot;111&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;match_server&quot; private_ip=&quot;127.0.0.1&quot; private_port=&quot;51054&quot; public_ip =&quot;&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; debug=&quot;0&quot;/&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;server code=&quot;111&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;match_server&quot; private_ip=&quot;PRIVATE_IP&quot; private_port=&quot;51054&quot; public_ip =&quot;&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; debug=&quot;0&quot;/&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;msg_server ip=&quot;127.0.0.1&quot; port=&quot;51052&quot; code=&quot;6 [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;msg_server ip=&quot;PRIVATE_IP&quot; port=&quot;51052&quot; c [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string match_serveroption {
             get {
@@ -757,14 +756,14 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server name=&quot;MSG_61&quot; private_ip=&quot;127.0.0.1&quot; public_ip=&quot;&quot; code=&quot;61&quot; private_port=&quot;51052&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; world=&quot;10101&quot; agent=&quot;1&quot; /&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;server name=&quot;MSG_61&quot; private_ip=&quot;PRIVATE_IP&quot; public_ip=&quot;&quot; code=&quot;61&quot; private_port=&quot;51052&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; world=&quot;10101&quot; agent=&quot;1&quot; /&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;gm_server ip=&quot;127.0.0.1&quot; port=&quot;51002&quot; code=&quot;71&quot; /&gt;
-        ///&lt;gate_server [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;gm_server ip=&quot;PRIVATE_IP&quot; port=&quot;51002&quot; code=&quot;71&quot; /&gt;
+        ///&lt;gate_ [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string MSG_61 {
             get {
@@ -774,13 +773,13 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server code=&quot;61&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;msg_server&quot; private_ip=&quot;127.0.0.1&quot; private_port=&quot;51052&quot; public_ip =&quot;&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; debug=&quot;0&quot;/&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;server code=&quot;61&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;msg_server&quot; private_ip=&quot;PRIVATE_IP&quot; private_port=&quot;51052&quot; public_ip =&quot;&quot; public_port=&quot;0&quot; public_udpport=&quot;0&quot; debug=&quot;0&quot;/&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;gm_server ip=&quot;127.0.0.1&quot; port=&quot;51002&quot; code=&quot;71&quot; / [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;gm_server ip=&quot;PRIVATE_IP&quot; port=&quot;51002&quot; code= [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string msg_serveroption {
             get {
@@ -801,14 +800,14 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server name=&quot;PVP_3003&quot; private_ip=&quot;&quot; public_ip=&quot;YOUR_WAN_IP&quot; code=&quot;3003&quot; private_port=&quot;0&quot; public_port=&quot;50004&quot; public_udpport=&quot;52000&quot; world=&quot;10101&quot; udp_count=&quot;50&quot; agent=&quot;1&quot; /&gt;
+        ///&lt;server name=&quot;PVP_3003&quot; private_ip=&quot;&quot; public_ip=&quot;PUBLIC_IP&quot; code=&quot;3003&quot; private_port=&quot;0&quot; public_port=&quot;50004&quot; public_udpport=&quot;52000&quot; world=&quot;10101&quot; udp_count=&quot;50&quot; agent=&quot;1&quot; /&gt;
         ///&lt;pvp value=&quot;50&quot; /&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;msg_server ip=&quot;127. [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;msg_server ip=&quot;PR [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string PVP_3003 {
             get {
@@ -818,14 +817,14 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server code=&quot;3003&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;pvp_server&quot; private_ip=&quot;&quot; private_port=&quot;0&quot; public_ip =&quot;YOUR_WAN_IP&quot; public_port=&quot;50004&quot; public_udpport=&quot;52000&quot; public_updcount=&quot;50&quot; debug=&quot;0&quot;/&gt;
+        ///&lt;server code=&quot;3003&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;pvp_server&quot; private_ip=&quot;&quot; private_port=&quot;0&quot; public_ip =&quot;PUBLIC_IP&quot; public_port=&quot;50004&quot; public_udpport=&quot;52000&quot; public_updcount=&quot;50&quot; debug=&quot;0&quot;/&gt;
         ///&lt;pvp value=&quot;50&quot; /&gt;
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;m [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt;
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string pvp_serveroption {
             get {
@@ -839,7 +838,7 @@ namespace RHServerManager.Properties {
         /////=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
         ///
         ///[DBC SERVER]
-        ///ip = YOUR_WAN_IP
+        ///ip = PRIVATE_IP
         ///port = 51055
         ///max connection = 100
         ///
@@ -848,7 +847,7 @@ namespace RHServerManager.Properties {
         /////=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
         ///
         ///[AUTH DATABASE]
-        ///Account DB Connection String = Provider=SQLOLEDB;Passw [rest of string was truncated]&quot;;.
+        ///Account DB Connection String = Provider=SQLOLEDB;Passwo [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string server_info {
             get {
@@ -858,13 +857,13 @@ namespace RHServerManager.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;
-        ///&lt;server code=&quot;21001&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;lobby_server&quot; private_ip=&quot;127.0.0.1&quot; private_port=&quot;51006&quot; public_ip =&quot;YOUR_WAN_IP&quot; public_port=&quot;50006&quot; public_udpport=&quot;0&quot; thread_num=2 session_count=10 debug=&quot;0&quot;/&gt;
+        ///&lt;server code=&quot;21001&quot; agent=&quot;1&quot; world=&quot;10101&quot; name=&quot;lobby_server&quot; private_ip=&quot;PRIVATE_IP&quot; private_port=&quot;51006&quot; public_ip =&quot;PUBLIC_IP&quot; public_port=&quot;50006&quot; public_udpport=&quot;0&quot; thread_num=2 session_count=10 debug=&quot;0&quot;/&gt;
         ///
-        ///&lt;agent_server ip=&quot;127.0.0.1&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
+        ///&lt;agent_server ip=&quot;PRIVATE_IP&quot; port=&quot;51060&quot; code=&quot;800&quot; /&gt;
         ///
-        ///&lt;agentmanager ip=&quot;127.0.0.1&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
-        ///&lt;db_cache ip=&quot;127.0.0.1&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
-        ///&lt;db_log_cache ip=&quot;127.0.0.1&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; /&gt; [rest of string was truncated]&quot;;.
+        ///&lt;agentmanager ip=&quot;PRIVATE_IP&quot; port=&quot;51091&quot; code=&quot;900&quot; send_time_second=&quot;5&quot; /&gt;
+        ///&lt;db_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51055&quot; code=&quot;1&quot; session_count=&quot;5&quot; /&gt;
+        ///&lt;db_log_cache ip=&quot;PRIVATE_IP&quot; port=&quot;51056&quot; code=&quot;2&quot; session_count=&quot;5&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string serveroption {
             get {
@@ -878,15 +877,22 @@ namespace RHServerManager.Properties {
         ///&lt;service&gt;
         ///	&lt;active_area country=&quot;SERVICE_COUNTRY&quot; /&gt;
         ///	
-        ///	&lt;area country=&quot;usa&quot; auth_url=&quot;AUTH_URL&quot; billing_url=&quot;BILLING_URL&quot; billing_idc=&quot;10101&quot; xtrap_use=&quot;0&quot; server_mode=&quot;WAG&quot; betazone=&quot;0&quot; /&gt;
+        ///	&lt;area country=&quot;usa&quot; auth_url=&quot;AUTH_URL&quot; billing_url=&quot;BILLING_URL&quot; skip_auth=&quot;SKIP_AUTH&quot; skip_billing=&quot;SKIP_BILLING&quot; free_cash=&quot;FREE_CASH&quot; skip_abuse_nick=&quot;SKIP_ABUSE_NICK&quot; channel_limit_count=&quot;CHANNEL_LIMIT_COUNT&quot; world_user_limit_count=&quot;WORLD_USER_LIMIT_COUNT&quot; second_pass=&quot;SECOND_PASS&quot; billing_idc=&quot;10101&quot; xtrap_use=&quot;0&quot; server_mode=&quot;SERVER_MODE&quot; betazone=&quot;BETAZONE&quot; /&gt;
         ///	
-        ///	&lt;area country=&quot;chn&quot; skip_auth=&quot;1&quot; free_cash=&quot;1&quot; skip_abuse_nick =&quot;1&quot; enc_xml_use =&quot;1&quot; billing_idc=&quot;10101&quot; xtrap_use=&quot;0&quot; server_mode=&quot;WAG&quot; betazone=&quot;0&quot; /&gt;
-        ///&lt;/service&gt;
-        ///.
+        ///	&lt;area country=&quot;chn&quot; skip_auth=&quot;SKIP_AUTH&quot; skip_billing=&quot;SK [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string service_control {
             get {
                 return ResourceManager.GetString("service_control", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; ?&gt;.
+        /// </summary>
+        internal static string shop_control {
+            get {
+                return ResourceManager.GetString("shop_control", resourceCulture);
             }
         }
         

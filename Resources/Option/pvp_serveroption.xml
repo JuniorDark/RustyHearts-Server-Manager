@@ -1,19 +1,19 @@
 <?xml version="1.0" ?>
-<server code="3003" agent="1" world="10101" name="pvp_server" private_ip="" private_port="0" public_ip ="YOUR_WAN_IP" public_port="50004" public_udpport="52000" public_updcount="50" debug="0"/>
+<server code="3003" agent="1" world="10101" name="pvp_server" private_ip="" private_port="0" public_ip ="PUBLIC_IP" public_port="50004" public_udpport="52000" public_updcount="50" debug="0"/>
 <pvp value="50" />
-<agent_server ip="127.0.0.1" port="51060" code="800" />
+<agent_server ip="PRIVATE_IP" port="51060" code="800" />
 
-<agentmanager ip="127.0.0.1" port="51091" code="900" send_time_second="5" />
-<db_cache ip="127.0.0.1" port="51055" code="1" session_count="5" />
-<db_log_cache ip="127.0.0.1" port="51056" code="2" session_count="5" />
-<msg_server ip="127.0.0.1" port="51052" code="61" />
-<gm_server ip="127.0.0.1" port="51002" code="71" />
-<gate_server ip="127.0.0.1" port="50008" code="81" />
-<manager_server ip="127.0.0.1" port="51051" code="91" />
-<auction_server ip="127.0.0.1" port="51053" code="101" />
-<match_server ip="127.0.0.1" port="51054" code="111" />
-<dungeon_server ip="YOUR_WAN_IP" port="51016" code="2001" />
-<guild_server ip="127.0.0.1" port="51003" code="5001" />
-<lobby_server ip="127.0.0.1" port="51006" code="21001" />
+<agentmanager ip="PRIVATE_IP" port="51091" code="900" send_time_second="5" />
+<db_cache ip="PRIVATE_IP" port="51055" code="1" session_count="5" />
+<db_log_cache ip="PRIVATE_IP" port="51056" code="2" session_count="5" />
+<msg_server ip="PRIVATE_IP" port="51052" code="61" />
+<gm_server ip="PRIVATE_IP" port="51002" code="71" />
+<gate_server ip="PRIVATE_IP" port="50008" code="81" />
+<manager_server ip="PRIVATE_IP" port="51051" code="91" />
+<auction_server ip="PRIVATE_IP" port="51053" code="101" />
+<match_server ip="PRIVATE_IP" port="51054" code="111" />
+<dungeon_server ip="PUBLIC_IP" port="50016" code="2001" />
+<guild_server ip="PRIVATE_IP" port="51003" code="5001" />
+<lobby_server ip="PRIVATE_IP" port="51006" code="21001" />
 
 <setting />

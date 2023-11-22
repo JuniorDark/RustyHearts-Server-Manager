@@ -7,10 +7,10 @@ namespace RHServerManager
     {
         private readonly string _iniFilePath;
 
-        [DllImport("kernel32")]
+        [DllImport("kernel32", CharSet = CharSet.Unicode)]
         private static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
 
-        [DllImport("kernel32")]
+        [DllImport("kernel32", CharSet = CharSet.Unicode)]
         private static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
 
         public IniFile(string iniFileName)
@@ -20,30 +20,21 @@ namespace RHServerManager
 
             if (!File.Exists(_iniFilePath))
             {
-                WritePrivateProfileString("Option", "DirServer", "", _iniFilePath);
-                WritePrivateProfileString("Option", "DirAPI", "", _iniFilePath);
-                WritePrivateProfileString("Option", "SqlServer", "", _iniFilePath);
-                WritePrivateProfileString("Option", "SqlUser", "", _iniFilePath);
-                WritePrivateProfileString("Option", "SqlPasswd", "", _iniFilePath);
-                WritePrivateProfileString("Option", "ServerIP", "", _iniFilePath);
-                WritePrivateProfileString("Option", "ServerName", "", _iniFilePath);
-                WritePrivateProfileString("Option", "ServiceCountry", "", _iniFilePath);
-                WritePrivateProfileString("Option", "AuthUrl", "", _iniFilePath);
-                WritePrivateProfileString("Option", "BillingUrl", "", _iniFilePath);
+                File.Create(_iniFilePath).Close();
             }
         }
 
-        public string ReadValue(string section, string key)
+        public string ReadValue(string key, string defaultValue = "")
         {
             StringBuilder sb = new(255);
-            GetPrivateProfileString(section, key, "", sb, 255, _iniFilePath);
+            _ = GetPrivateProfileString("Option", key, defaultValue, sb, 255, _iniFilePath);
             return sb.ToString();
         }
 
-        public void WriteValue(string section, string key, string value)
+        public void WriteValue(string key, string value)
         {
-            WritePrivateProfileString(section, key, value, _iniFilePath);
+            WritePrivateProfileString("Option", key, value, _iniFilePath);
         }
-
     }
+
 }
