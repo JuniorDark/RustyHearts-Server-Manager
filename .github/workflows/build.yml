@@ -19,7 +19,7 @@ jobs:
         run: Compress-Archive -Path "./bin/Release/net7.0-windows/win-x86/publish/RH Server Manager.exe" -DestinationPath RH_Server_Manager.zip
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: RH Server Manager
           path: RH_Server_Manager.zip
