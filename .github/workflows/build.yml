@@ -6,20 +6,24 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '7.0.x'
-      - name: Buildv
-        run: dotnet publish --configuration Release --self-contained false --runtime win-x86 /p:PublishSingleFile=true
-      - name: Zip output file
-        run: Compress-Archive -Path "./bin/Release/net7.0-windows/win-x86/publish/RH Server Manager.exe" -DestinationPath RH_Server_Manager.zip
+          dotnet-version: '9.0.x'
 
+      # Build with --self-contained false
+      - name: Build (No Self-Contained)
+        run: dotnet publish ./RHServerManager.sln --configuration Release --self-contained false --runtime win-x64 /p:PublishSingleFile=true /p:PublishDir=./publish/RustyHearts-ServerManager_framework-dependent
+
+      - name: Zip output files (No Self-Contained)
+        run: Compress-Archive -Path "./publish/RustyHearts-ServerManager_framework-dependent" -DestinationPath RustyHearts-ServerManager.zip
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: RH Server Manager
-          path: RH_Server_Manager.zip
+          name: RustyHearts-ServerManager
+          path: RustyHearts-ServerManager.zip

@@ -3,42 +3,50 @@ on:
   workflow_dispatch:
   release:
     types: [created]
+
 jobs:
   build:
     runs-on: windows-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '7.0.x'
-      - name: Get version from .csproj file
-        id: version
+          dotnet-version: '9.0.x'
 
+      # Build with --self-contained false
+      - name: Build (No Self-Contained)
+        run: dotnet publish ./RHServerManager.sln --configuration Release --self-contained false --runtime win-x64 /p:PublishSingleFile=true /p:PublishDir=./publish/RustyHearts-ServerManager_framework-dependent
+
+      - name: Zip output files (No Self-Contained)
+        run: Compress-Archive -Path "./publish/RustyHearts-ServerManager_framework-dependent" -DestinationPath RustyHearts-ServerManager-Framework-Dependent.zip
+
+      # Build with --self-contained true
+      - name: Build (Self-Contained)
+        run: dotnet publish ./RHServerManager.sln --configuration Release --self-contained true --runtime win-x64 /p:PublishSingleFile=false /p:PublishDir=./publish/RustyHearts-ServerManager_self-contained
+
+      - name: Zip output files (Self-Contained)
+        run: Compress-Archive -Path "./publish/RustyHearts-ServerManager_self-contained" -DestinationPath RustyHearts-ServerManager-SelfContained.zip
+
+      - name: Get version from compiled assembly
+        id: version
         run: |
-          echo "::set-output name=version::$(grep -m1 -o '<FileVersion>[^<]*' RHServerManager.csproj | sed 's/<FileVersion>//')"
-      - name: Build
-        run: dotnet publish --configuration Release --self-contained false --runtime win-x86 /p:PublishSingleFile=true
-      - name: Zip output file
-        run: Compress-Archive -Path "./bin/Release/net7.0-windows/win-x86/publish/RH Server Manager.exe" -DestinationPath RH_Server_Manager.zip
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
+          $version = (Get-Command "./publish/RustyHearts-ServerManager_self-contained/RH Server Manager.dll").FileVersionInfo.FileVersion
+          echo "::set-output name=version::$version"
+
+      # Create Release and Upload Assets using softprops/action-gh-release
+      - name: Create GitHub Release and Upload Assets
+        uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ steps.version.outputs.version }}
-          release_name: v${{ steps.version.outputs.version }}
-          body: Automated release created by GitHub Actions.
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./RH_Server_Manager.zip
-          asset_name: RH_Server_Manager.zip
-          asset_content_type: application/zip
+          tag_name: v${{ steps.version.outputs.version }}
+          body: Automated pre-release created by GitHub Actions.
+          draft: true
+          prerelease: true
+          files: |
+            ./RustyHearts-ServerManager-Framework-Dependent.zip
+            ./RustyHearts-ServerManager-SelfContained.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
