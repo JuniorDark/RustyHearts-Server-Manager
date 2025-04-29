@@ -97,7 +97,7 @@
             // lbServerMode
             // 
             lbServerMode.AutoSize = true;
-            lbServerMode.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbServerMode.Font = new Font("Segoe UI", 8F);
             lbServerMode.Location = new Point(2, 124);
             lbServerMode.Name = "lbServerMode";
             lbServerMode.Size = new Size(74, 13);
@@ -174,14 +174,14 @@
             // 
             tbBillingUrl.Location = new Point(108, 81);
             tbBillingUrl.Name = "tbBillingUrl";
-            tbBillingUrl.PlaceholderText = "http://localhost:8080/serverApi/billing";
+            tbBillingUrl.PlaceholderText = "http://127.0.0.1:8070/Billing";
             tbBillingUrl.Size = new Size(240, 23);
             tbBillingUrl.TabIndex = 80;
             // 
             // lbBillingAddress
             // 
             lbBillingAddress.AutoSize = true;
-            lbBillingAddress.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbBillingAddress.Font = new Font("Segoe UI", 8F);
             lbBillingAddress.Location = new Point(2, 85);
             lbBillingAddress.Name = "lbBillingAddress";
             lbBillingAddress.Size = new Size(98, 13);
@@ -192,14 +192,14 @@
             // 
             tbAuthUrl.Location = new Point(108, 46);
             tbAuthUrl.Name = "tbAuthUrl";
-            tbAuthUrl.PlaceholderText = "http://localhost:8070/serverApi/auth";
+            tbAuthUrl.PlaceholderText = "http://127.0.0.1:8070/Auth";
             tbAuthUrl.Size = new Size(240, 23);
             tbAuthUrl.TabIndex = 77;
             // 
             // lbAuthAddress
             // 
             lbAuthAddress.AutoSize = true;
-            lbAuthAddress.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbAuthAddress.Font = new Font("Segoe UI", 8F);
             lbAuthAddress.Location = new Point(4, 49);
             lbAuthAddress.Name = "lbAuthAddress";
             lbAuthAddress.Size = new Size(98, 13);
@@ -237,7 +237,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI", 8F);
             label1.Location = new Point(2, 15);
             label1.Name = "label1";
             label1.Size = new Size(74, 13);

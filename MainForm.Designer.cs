@@ -227,10 +227,14 @@
             cbLogUse = new CheckBox();
             tabApi = new TabPage();
             gbApiConfig = new GroupBox();
+            tbApiLocalIP = new TextBox();
+            pictureBox2 = new PictureBox();
+            lbLocalApiAddress = new Label();
             pbGatePort = new PictureBox();
             pbGateIP = new PictureBox();
-            btnSaveAPI = new Button();
             gbApiEmail = new GroupBox();
+            tbSmtpSender = new TextBox();
+            LabelSmtpSender = new Label();
             pbEyeSmtpPassword = new PictureBox();
             LabelSmtpHost = new Label();
             tbSmtpUsername = new TextBox();
@@ -256,16 +260,24 @@
             tbDBPassword = new TextBox();
             lbDBPwd = new Label();
             gbApiSettings = new GroupBox();
+            tbShopBalance = new TextBox();
+            lbShopBalance = new Label();
+            tbProxyPort = new TextBox();
+            label4 = new Label();
+            tbTrustProxyHosts = new TextBox();
+            lbTrustProxyHost = new Label();
+            cbTrustProxy = new CheckBox();
             tbApiPort = new TextBox();
             cbHelmet = new CheckBox();
             lbApiPort = new Label();
-            tbAuthPort = new TextBox();
-            lbAuthPort = new Label();
-            tbBillingPort = new TextBox();
-            lbBillingPort = new Label();
+            tbUsaPort = new TextBox();
+            lbUsaPort = new Label();
+            tbJpnPort = new TextBox();
+            lbJpnPort = new Label();
             tbTimeZone = new TextBox();
             lbTimezone = new Label();
             grbApiLog = new GroupBox();
+            cbLogIPAddresses = new CheckBox();
             cbLogAuthConsole = new CheckBox();
             lbLogLevel = new Label();
             cbLogBillingConsole = new CheckBox();
@@ -282,15 +294,20 @@
             gbApiDir = new GroupBox();
             btnOpenApiDir = new Button();
             pbApiDir = new PictureBox();
+            btnSaveAPI = new Button();
             btnBrowseAPI = new Button();
             lbAPIDir = new Label();
             tbAPIDir = new TextBox();
             tabStart = new TabPage();
             gbAPIControls = new GroupBox();
+            btnStartAPIPM2All = new Button();
+            btnStartAPIPM2Usa = new Button();
+            btnStartAPIAll = new Button();
+            btnStartAPIUsa = new Button();
             btnStopAPIPM2 = new Button();
-            btnStartAPIPM2 = new Button();
+            btnStartAPIPM2Jpn = new Button();
             btnClearAPILogs = new Button();
-            btnStartAPI = new Button();
+            btnStartAPIJpn = new Button();
             btnStopAPI = new Button();
             gbServerControls = new GroupBox();
             btnStopServers = new Button();
@@ -367,6 +384,7 @@
             gbLog.SuspendLayout();
             tabApi.SuspendLayout();
             gbApiConfig.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbGatePort).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbGateIP).BeginInit();
             gbApiEmail.SuspendLayout();
@@ -386,7 +404,7 @@
             // lbServerDir
             // 
             lbServerDir.AutoSize = true;
-            lbServerDir.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbServerDir.Font = new Font("Segoe UI", 8F);
             lbServerDir.Location = new Point(41, 32);
             lbServerDir.Name = "lbServerDir";
             lbServerDir.Size = new Size(95, 13);
@@ -396,7 +414,7 @@
             // lbPublicIP
             // 
             lbPublicIP.AutoSize = true;
-            lbPublicIP.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbPublicIP.Font = new Font("Segoe UI", 8F);
             lbPublicIP.Location = new Point(40, 67);
             lbPublicIP.Name = "lbPublicIP";
             lbPublicIP.Size = new Size(102, 13);
@@ -406,7 +424,7 @@
             // lbSQLAddress
             // 
             lbSQLAddress.AutoSize = true;
-            lbSQLAddress.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbSQLAddress.Font = new Font("Segoe UI", 8F);
             lbSQLAddress.Location = new Point(40, 31);
             lbSQLAddress.Name = "lbSQLAddress";
             lbSQLAddress.Size = new Size(78, 13);
@@ -416,7 +434,7 @@
             // lbSQLAccount
             // 
             lbSQLAccount.AutoSize = true;
-            lbSQLAccount.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbSQLAccount.Font = new Font("Segoe UI", 8F);
             lbSQLAccount.Location = new Point(40, 67);
             lbSQLAccount.Name = "lbSQLAccount";
             lbSQLAccount.Size = new Size(79, 13);
@@ -426,7 +444,7 @@
             // lbSQLPassword
             // 
             lbSQLPassword.AutoSize = true;
-            lbSQLPassword.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbSQLPassword.Font = new Font("Segoe UI", 8F);
             lbSQLPassword.Location = new Point(41, 102);
             lbSQLPassword.Name = "lbSQLPassword";
             lbSQLPassword.Size = new Size(86, 13);
@@ -592,7 +610,7 @@
             tabControlSettings.Location = new Point(5, 8);
             tabControlSettings.Name = "tabControlSettings";
             tabControlSettings.SelectedIndex = 0;
-            tabControlSettings.Size = new Size(863, 480);
+            tabControlSettings.Size = new Size(963, 525);
             tabControlSettings.TabIndex = 38;
             // 
             // tabServer
@@ -601,7 +619,7 @@
             tabServer.Location = new Point(4, 24);
             tabServer.Name = "tabServer";
             tabServer.Padding = new Padding(3);
-            tabServer.Size = new Size(855, 452);
+            tabServer.Size = new Size(955, 497);
             tabServer.TabIndex = 0;
             tabServer.Text = "Server Config";
             // 
@@ -613,7 +631,7 @@
             tabControlServerSettings.Location = new Point(0, 3);
             tabControlServerSettings.Name = "tabControlServerSettings";
             tabControlServerSettings.SelectedIndex = 0;
-            tabControlServerSettings.Size = new Size(852, 450);
+            tabControlServerSettings.Size = new Size(952, 488);
             tabControlServerSettings.TabIndex = 43;
             // 
             // tabSettings
@@ -627,7 +645,7 @@
             tabSettings.Location = new Point(4, 24);
             tabSettings.Name = "tabSettings";
             tabSettings.Padding = new Padding(3);
-            tabSettings.Size = new Size(844, 422);
+            tabSettings.Size = new Size(944, 460);
             tabSettings.TabIndex = 0;
             tabSettings.Text = "Server Option";
             // 
@@ -638,7 +656,7 @@
             gbDir.Controls.Add(btnBrowseServer);
             gbDir.Controls.Add(lbServerDir);
             gbDir.Controls.Add(tbServerDir);
-            gbDir.Location = new Point(0, 2);
+            gbDir.Location = new Point(34, 2);
             gbDir.Name = "gbDir";
             gbDir.Size = new Size(818, 74);
             gbDir.TabIndex = 41;
@@ -662,7 +680,7 @@
             // 
             gbDB.Controls.Add(btnRestoreDB);
             gbDB.Controls.Add(btnBackupDB);
-            gbDB.Location = new Point(424, 260);
+            gbDB.Location = new Point(474, 266);
             gbDB.Name = "gbDB";
             gbDB.Size = new Size(394, 99);
             gbDB.TabIndex = 38;
@@ -673,7 +691,7 @@
             // 
             gbSaveSettings.Controls.Add(btnUpdateDB);
             gbSaveSettings.Controls.Add(btnUpdateOption);
-            gbSaveSettings.Location = new Point(8, 260);
+            gbSaveSettings.Location = new Point(58, 266);
             gbSaveSettings.Name = "gbSaveSettings";
             gbSaveSettings.Size = new Size(377, 99);
             gbSaveSettings.TabIndex = 42;
@@ -692,7 +710,7 @@
             gbSQLSettings.Controls.Add(lbSQLAddress);
             gbSQLSettings.Controls.Add(pbSqlAccount);
             gbSQLSettings.Controls.Add(pbSqlPassword);
-            gbSQLSettings.Location = new Point(424, 78);
+            gbSQLSettings.Location = new Point(474, 84);
             gbSQLSettings.Name = "gbSQLSettings";
             gbSQLSettings.Size = new Size(394, 176);
             gbSQLSettings.TabIndex = 39;
@@ -722,7 +740,7 @@
             GbServerSettings.Controls.Add(tbPublicIP);
             GbServerSettings.Controls.Add(pbServerIp);
             GbServerSettings.Controls.Add(lbPublicIP);
-            GbServerSettings.Location = new Point(2, 78);
+            GbServerSettings.Location = new Point(52, 84);
             GbServerSettings.Name = "GbServerSettings";
             GbServerSettings.Size = new Size(383, 176);
             GbServerSettings.TabIndex = 40;
@@ -750,7 +768,7 @@
             // lbPrivateIP
             // 
             lbPrivateIP.AutoSize = true;
-            lbPrivateIP.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbPrivateIP.Font = new Font("Segoe UI", 8F);
             lbPrivateIP.Location = new Point(40, 25);
             lbPrivateIP.Name = "lbPrivateIP";
             lbPrivateIP.Size = new Size(105, 13);
@@ -778,7 +796,7 @@
             // lbServerName
             // 
             lbServerName.AutoSize = true;
-            lbServerName.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbServerName.Font = new Font("Segoe UI", 8F);
             lbServerName.Location = new Point(40, 105);
             lbServerName.Name = "lbServerName";
             lbServerName.Size = new Size(78, 13);
@@ -810,7 +828,7 @@
             tabService.Location = new Point(4, 24);
             tabService.Name = "tabService";
             tabService.Padding = new Padding(3);
-            tabService.Size = new Size(844, 422);
+            tabService.Size = new Size(944, 460);
             tabService.TabIndex = 1;
             tabService.Text = "Service Control";
             // 
@@ -857,7 +875,7 @@
             // lbAuthAddress
             // 
             lbAuthAddress.AutoSize = true;
-            lbAuthAddress.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbAuthAddress.Font = new Font("Segoe UI", 8F);
             lbAuthAddress.Location = new Point(45, 23);
             lbAuthAddress.Name = "lbAuthAddress";
             lbAuthAddress.Size = new Size(98, 13);
@@ -877,7 +895,7 @@
             // lbBillingAddress
             // 
             lbBillingAddress.AutoSize = true;
-            lbBillingAddress.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbBillingAddress.Font = new Font("Segoe UI", 8F);
             lbBillingAddress.Location = new Point(45, 61);
             lbBillingAddress.Name = "lbBillingAddress";
             lbBillingAddress.Size = new Size(98, 13);
@@ -1040,7 +1058,7 @@
             // lbActiveArea
             // 
             lbActiveArea.AutoSize = true;
-            lbActiveArea.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbActiveArea.Font = new Font("Segoe UI", 8F);
             lbActiveArea.Location = new Point(40, 15);
             lbActiveArea.Name = "lbActiveArea";
             lbActiveArea.Size = new Size(77, 13);
@@ -1059,7 +1077,7 @@
             // btnSaveService
             // 
             btnSaveService.Image = Properties.Resources.icons8_save_32;
-            btnSaveService.Location = new Point(354, 354);
+            btnSaveService.Location = new Point(419, 353);
             btnSaveService.Name = "btnSaveService";
             btnSaveService.Size = new Size(122, 53);
             btnSaveService.TabIndex = 77;
@@ -1089,7 +1107,7 @@
             // lbServerMode
             // 
             lbServerMode.AutoSize = true;
-            lbServerMode.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbServerMode.Font = new Font("Segoe UI", 8F);
             lbServerMode.Location = new Point(419, 15);
             lbServerMode.Name = "lbServerMode";
             lbServerMode.Size = new Size(74, 13);
@@ -1133,7 +1151,7 @@
             // lbServerRegion
             // 
             lbServerRegion.AutoSize = true;
-            lbServerRegion.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbServerRegion.Font = new Font("Segoe UI", 8F);
             lbServerRegion.Location = new Point(259, 15);
             lbServerRegion.Name = "lbServerRegion";
             lbServerRegion.Size = new Size(47, 13);
@@ -1157,15 +1175,15 @@
             tabContentControl.Controls.Add(tabControlContent);
             tabContentControl.Location = new Point(4, 24);
             tabContentControl.Name = "tabContentControl";
-            tabContentControl.Size = new Size(844, 422);
+            tabContentControl.Size = new Size(944, 460);
             tabContentControl.TabIndex = 2;
             tabContentControl.Text = "Content Control";
             // 
             // btnSaveContent
             // 
-            btnSaveContent.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSaveContent.Font = new Font("Segoe UI", 8F);
             btnSaveContent.Image = Properties.Resources.icons8_save_32;
-            btnSaveContent.Location = new Point(354, 354);
+            btnSaveContent.Location = new Point(425, 393);
             btnSaveContent.Name = "btnSaveContent";
             btnSaveContent.Size = new Size(126, 53);
             btnSaveContent.TabIndex = 40;
@@ -1184,7 +1202,7 @@
             tabControlContent.Location = new Point(2, 0);
             tabControlContent.Name = "tabControlContent";
             tabControlContent.SelectedIndex = 0;
-            tabControlContent.Size = new Size(843, 324);
+            tabControlContent.Size = new Size(939, 376);
             tabControlContent.TabIndex = 1;
             // 
             // tabGeneral
@@ -1196,7 +1214,7 @@
             tabGeneral.Controls.Add(groupBoxPvp);
             tabGeneral.Location = new Point(4, 24);
             tabGeneral.Name = "tabGeneral";
-            tabGeneral.Size = new Size(835, 296);
+            tabGeneral.Size = new Size(931, 348);
             tabGeneral.TabIndex = 2;
             tabGeneral.Text = "General";
             // 
@@ -1655,7 +1673,7 @@
             tabContentServer.Controls.Add(gbParty);
             tabContentServer.Location = new Point(4, 24);
             tabContentServer.Name = "tabContentServer";
-            tabContentServer.Size = new Size(835, 296);
+            tabContentServer.Size = new Size(931, 348);
             tabContentServer.TabIndex = 6;
             tabContentServer.Text = "Server";
             // 
@@ -1892,7 +1910,7 @@
             // lbChannelLockdown
             // 
             lbChannelLockdown.AutoSize = true;
-            lbChannelLockdown.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbChannelLockdown.Font = new Font("Segoe UI", 8F);
             lbChannelLockdown.Location = new Point(192, 62);
             lbChannelLockdown.Name = "lbChannelLockdown";
             lbChannelLockdown.Size = new Size(106, 13);
@@ -1911,7 +1929,7 @@
             // lbServerLockdown
             // 
             lbServerLockdown.AutoSize = true;
-            lbServerLockdown.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbServerLockdown.Font = new Font("Segoe UI", 8F);
             lbServerLockdown.Location = new Point(192, 26);
             lbServerLockdown.Name = "lbServerLockdown";
             lbServerLockdown.Size = new Size(94, 13);
@@ -1930,7 +1948,7 @@
             // lbMaxServerChannel
             // 
             lbMaxServerChannel.AutoSize = true;
-            lbMaxServerChannel.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbMaxServerChannel.Font = new Font("Segoe UI", 8F);
             lbMaxServerChannel.Location = new Point(6, 96);
             lbMaxServerChannel.Name = "lbMaxServerChannel";
             lbMaxServerChannel.Size = new Size(108, 13);
@@ -1949,7 +1967,7 @@
             // lbChannelAdd
             // 
             lbChannelAdd.AutoSize = true;
-            lbChannelAdd.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbChannelAdd.Font = new Font("Segoe UI", 8F);
             lbChannelAdd.Location = new Point(6, 60);
             lbChannelAdd.Name = "lbChannelAdd";
             lbChannelAdd.Size = new Size(74, 13);
@@ -1968,7 +1986,7 @@
             // lbBasisCount
             // 
             lbBasisCount.AutoSize = true;
-            lbBasisCount.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbBasisCount.Font = new Font("Segoe UI", 8F);
             lbBasisCount.Location = new Point(6, 24);
             lbBasisCount.Name = "lbBasisCount";
             lbBasisCount.Size = new Size(67, 13);
@@ -2008,7 +2026,7 @@
             // lbDefaultMax
             // 
             lbDefaultMax.AutoSize = true;
-            lbDefaultMax.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbDefaultMax.Font = new Font("Segoe UI", 8F);
             lbDefaultMax.Location = new Point(201, 92);
             lbDefaultMax.Name = "lbDefaultMax";
             lbDefaultMax.Size = new Size(69, 13);
@@ -2026,7 +2044,7 @@
             // lbRaidMax
             // 
             lbRaidMax.AutoSize = true;
-            lbRaidMax.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbRaidMax.Font = new Font("Segoe UI", 8F);
             lbRaidMax.Location = new Point(201, 24);
             lbRaidMax.Name = "lbRaidMax";
             lbRaidMax.Size = new Size(54, 13);
@@ -2044,7 +2062,7 @@
             // lbTutorialMax
             // 
             lbTutorialMax.AutoSize = true;
-            lbTutorialMax.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbTutorialMax.Font = new Font("Segoe UI", 8F);
             lbTutorialMax.Location = new Point(3, 27);
             lbTutorialMax.Name = "lbTutorialMax";
             lbTutorialMax.Size = new Size(71, 13);
@@ -2062,7 +2080,7 @@
             // lbMatchingMax
             // 
             lbMatchingMax.AutoSize = true;
-            lbMatchingMax.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbMatchingMax.Font = new Font("Segoe UI", 8F);
             lbMatchingMax.Location = new Point(201, 58);
             lbMatchingMax.Name = "lbMatchingMax";
             lbMatchingMax.Size = new Size(80, 13);
@@ -2080,7 +2098,7 @@
             // lbNormalMax
             // 
             lbNormalMax.AutoSize = true;
-            lbNormalMax.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbNormalMax.Font = new Font("Segoe UI", 8F);
             lbNormalMax.Location = new Point(3, 92);
             lbNormalMax.Name = "lbNormalMax";
             lbNormalMax.Size = new Size(68, 13);
@@ -2098,7 +2116,7 @@
             // lbSoloMax
             // 
             lbSoloMax.AutoSize = true;
-            lbSoloMax.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbSoloMax.Font = new Font("Segoe UI", 8F);
             lbSoloMax.Location = new Point(3, 60);
             lbSoloMax.Name = "lbSoloMax";
             lbSoloMax.Size = new Size(54, 13);
@@ -2141,7 +2159,7 @@
             tabContentDungeon.Controls.Add(cmbDungeon);
             tabContentDungeon.Location = new Point(4, 24);
             tabContentDungeon.Name = "tabContentDungeon";
-            tabContentDungeon.Size = new Size(835, 296);
+            tabContentDungeon.Size = new Size(931, 348);
             tabContentDungeon.TabIndex = 5;
             tabContentDungeon.Text = "Dungeon";
             // 
@@ -2411,7 +2429,7 @@
             tabLog.Location = new Point(4, 24);
             tabLog.Name = "tabLog";
             tabLog.Padding = new Padding(3);
-            tabLog.Size = new Size(835, 296);
+            tabLog.Size = new Size(931, 348);
             tabLog.TabIndex = 7;
             tabLog.Text = "Log";
             // 
@@ -2424,7 +2442,7 @@
             gbLog.Controls.Add(cbLogUse);
             gbLog.Location = new Point(3, 6);
             gbLog.Name = "gbLog";
-            gbLog.Size = new Size(831, 284);
+            gbLog.Size = new Size(922, 336);
             gbLog.TabIndex = 50;
             gbLog.TabStop = false;
             gbLog.Text = "Logs";
@@ -2484,15 +2502,17 @@
             tabApi.Location = new Point(4, 24);
             tabApi.Name = "tabApi";
             tabApi.Padding = new Padding(3);
-            tabApi.Size = new Size(855, 452);
+            tabApi.Size = new Size(955, 497);
             tabApi.TabIndex = 1;
             tabApi.Text = "API Config";
             // 
             // gbApiConfig
             // 
+            gbApiConfig.Controls.Add(tbApiLocalIP);
+            gbApiConfig.Controls.Add(pictureBox2);
+            gbApiConfig.Controls.Add(lbLocalApiAddress);
             gbApiConfig.Controls.Add(pbGatePort);
             gbApiConfig.Controls.Add(pbGateIP);
-            gbApiConfig.Controls.Add(btnSaveAPI);
             gbApiConfig.Controls.Add(gbApiEmail);
             gbApiConfig.Controls.Add(gbApiDB);
             gbApiConfig.Controls.Add(gbApiSettings);
@@ -2506,15 +2526,43 @@
             gbApiConfig.Controls.Add(lbApiAddress);
             gbApiConfig.Location = new Point(6, 81);
             gbApiConfig.Name = "gbApiConfig";
-            gbApiConfig.Size = new Size(843, 365);
+            gbApiConfig.Size = new Size(943, 413);
             gbApiConfig.TabIndex = 42;
             gbApiConfig.TabStop = false;
             gbApiConfig.Text = "API Config";
             // 
+            // tbApiLocalIP
+            // 
+            tbApiLocalIP.Location = new Point(522, 25);
+            tbApiLocalIP.Name = "tbApiLocalIP";
+            tbApiLocalIP.PlaceholderText = "127.0.0.1";
+            tbApiLocalIP.Size = new Size(159, 23);
+            tbApiLocalIP.TabIndex = 86;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.icons8_web_address_32;
+            pictureBox2.Location = new Point(364, 22);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(32, 32);
+            pictureBox2.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox2.TabIndex = 87;
+            pictureBox2.TabStop = false;
+            // 
+            // lbLocalApiAddress
+            // 
+            lbLocalApiAddress.AutoSize = true;
+            lbLocalApiAddress.Font = new Font("Segoe UI", 8F);
+            lbLocalApiAddress.Location = new Point(399, 29);
+            lbLocalApiAddress.Name = "lbLocalApiAddress";
+            lbLocalApiAddress.Size = new Size(116, 13);
+            lbLocalApiAddress.TabIndex = 85;
+            lbLocalApiAddress.Text = "Local API IP Address*:";
+            // 
             // pbGatePort
             // 
             pbGatePort.Image = Properties.Resources.icons8_ethernet_on_32;
-            pbGatePort.Location = new Point(608, 22);
+            pbGatePort.Location = new Point(364, 67);
             pbGatePort.Name = "pbGatePort";
             pbGatePort.Size = new Size(32, 32);
             pbGatePort.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -2524,28 +2572,17 @@
             // pbGateIP
             // 
             pbGateIP.Image = Properties.Resources.icons8_web_address_32;
-            pbGateIP.Location = new Point(357, 22);
+            pbGateIP.Location = new Point(10, 67);
             pbGateIP.Name = "pbGateIP";
             pbGateIP.Size = new Size(32, 32);
             pbGateIP.SizeMode = PictureBoxSizeMode.AutoSize;
             pbGateIP.TabIndex = 83;
             pbGateIP.TabStop = false;
             // 
-            // btnSaveAPI
-            // 
-            btnSaveAPI.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSaveAPI.Image = Properties.Resources.icons8_save_32;
-            btnSaveAPI.Location = new Point(357, 296);
-            btnSaveAPI.Name = "btnSaveAPI";
-            btnSaveAPI.Size = new Size(126, 53);
-            btnSaveAPI.TabIndex = 33;
-            btnSaveAPI.Text = "Save";
-            btnSaveAPI.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnSaveAPI.UseVisualStyleBackColor = true;
-            btnSaveAPI.Click += BtnUpdateAPI_Click;
-            // 
             // gbApiEmail
             // 
+            gbApiEmail.Controls.Add(tbSmtpSender);
+            gbApiEmail.Controls.Add(LabelSmtpSender);
             gbApiEmail.Controls.Add(pbEyeSmtpPassword);
             gbApiEmail.Controls.Add(LabelSmtpHost);
             gbApiEmail.Controls.Add(tbSmtpUsername);
@@ -2559,12 +2596,32 @@
             gbApiEmail.Controls.Add(tbSmtpFromName);
             gbApiEmail.Controls.Add(tbSmtpPort);
             gbApiEmail.Controls.Add(LabelSmtpName);
-            gbApiEmail.Location = new Point(607, 75);
+            gbApiEmail.Location = new Point(699, 108);
             gbApiEmail.Name = "gbApiEmail";
-            gbApiEmail.Size = new Size(230, 202);
+            gbApiEmail.Size = new Size(230, 299);
             gbApiEmail.TabIndex = 82;
             gbApiEmail.TabStop = false;
-            gbApiEmail.Text = "Email";
+            gbApiEmail.Text = "SMTP";
+            // 
+            // tbSmtpSender
+            // 
+            tbSmtpSender.Font = new Font("Segoe UI", 8.25F);
+            tbSmtpSender.Location = new Point(105, 172);
+            tbSmtpSender.Name = "tbSmtpSender";
+            tbSmtpSender.PlaceholderText = "noreply@example.com";
+            tbSmtpSender.Size = new Size(120, 22);
+            tbSmtpSender.TabIndex = 85;
+            // 
+            // LabelSmtpSender
+            // 
+            LabelSmtpSender.AutoSize = true;
+            LabelSmtpSender.Font = new Font("Segoe UI", 8F);
+            LabelSmtpSender.Location = new Point(5, 176);
+            LabelSmtpSender.Name = "LabelSmtpSender";
+            LabelSmtpSender.Size = new Size(74, 13);
+            LabelSmtpSender.TabIndex = 86;
+            LabelSmtpSender.Text = "SMTP Sender";
+            toolTip.SetToolTip(LabelSmtpSender, "Outgoing mail sender email address.");
             // 
             // pbEyeSmtpPassword
             // 
@@ -2581,7 +2638,7 @@
             // LabelSmtpHost
             // 
             LabelSmtpHost.AutoSize = true;
-            LabelSmtpHost.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelSmtpHost.Font = new Font("Segoe UI", 8F);
             LabelSmtpHost.Location = new Point(4, 21);
             LabelSmtpHost.Name = "LabelSmtpHost";
             LabelSmtpHost.Size = new Size(62, 13);
@@ -2591,7 +2648,7 @@
             // 
             // tbSmtpUsername
             // 
-            tbSmtpUsername.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            tbSmtpUsername.Font = new Font("Segoe UI", 8.25F);
             tbSmtpUsername.Location = new Point(104, 80);
             tbSmtpUsername.Name = "tbSmtpUsername";
             tbSmtpUsername.Size = new Size(120, 22);
@@ -2600,7 +2657,7 @@
             // LabelSmtpUser
             // 
             LabelSmtpUser.AutoSize = true;
-            LabelSmtpUser.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelSmtpUser.Font = new Font("Segoe UI", 8F);
             LabelSmtpUser.Location = new Point(4, 84);
             LabelSmtpUser.Name = "LabelSmtpUser";
             LabelSmtpUser.Size = new Size(89, 13);
@@ -2610,7 +2667,7 @@
             // 
             // tbSmtpPassword
             // 
-            tbSmtpPassword.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            tbSmtpPassword.Font = new Font("Segoe UI", 8.25F);
             tbSmtpPassword.Location = new Point(104, 110);
             tbSmtpPassword.Name = "tbSmtpPassword";
             tbSmtpPassword.Size = new Size(120, 22);
@@ -2620,8 +2677,8 @@
             // LabelSmtpEncryption
             // 
             LabelSmtpEncryption.AutoSize = true;
-            LabelSmtpEncryption.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelSmtpEncryption.Location = new Point(4, 174);
+            LabelSmtpEncryption.Font = new Font("Segoe UI", 8F);
+            LabelSmtpEncryption.Location = new Point(4, 210);
             LabelSmtpEncryption.Name = "LabelSmtpEncryption";
             LabelSmtpEncryption.Size = new Size(93, 13);
             LabelSmtpEncryption.TabIndex = 77;
@@ -2631,7 +2688,7 @@
             // LabelSmtpPwd
             // 
             LabelSmtpPwd.AutoSize = true;
-            LabelSmtpPwd.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelSmtpPwd.Font = new Font("Segoe UI", 8F);
             LabelSmtpPwd.Location = new Point(3, 114);
             LabelSmtpPwd.Name = "LabelSmtpPwd";
             LabelSmtpPwd.Size = new Size(87, 13);
@@ -2643,23 +2700,24 @@
             // 
             cmbSmtpEncryption.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbSmtpEncryption.FormattingEnabled = true;
-            cmbSmtpEncryption.Location = new Point(104, 169);
+            cmbSmtpEncryption.Location = new Point(104, 205);
             cmbSmtpEncryption.Name = "cmbSmtpEncryption";
             cmbSmtpEncryption.Size = new Size(120, 23);
             cmbSmtpEncryption.TabIndex = 76;
             // 
             // tbSmtpHost
             // 
-            tbSmtpHost.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            tbSmtpHost.Font = new Font("Segoe UI", 8.25F);
             tbSmtpHost.Location = new Point(104, 17);
             tbSmtpHost.Name = "tbSmtpHost";
+            tbSmtpHost.PlaceholderText = "smtp.gmail.com";
             tbSmtpHost.Size = new Size(120, 22);
             tbSmtpHost.TabIndex = 67;
             // 
             // LabelSmtpPort
             // 
             LabelSmtpPort.AutoSize = true;
-            LabelSmtpPort.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelSmtpPort.Font = new Font("Segoe UI", 8F);
             LabelSmtpPort.Location = new Point(4, 51);
             LabelSmtpPort.Name = "LabelSmtpPort";
             LabelSmtpPort.Size = new Size(59, 13);
@@ -2669,7 +2727,7 @@
             // 
             // tbSmtpFromName
             // 
-            tbSmtpFromName.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            tbSmtpFromName.Font = new Font("Segoe UI", 8.25F);
             tbSmtpFromName.Location = new Point(104, 140);
             tbSmtpFromName.Name = "tbSmtpFromName";
             tbSmtpFromName.Size = new Size(120, 22);
@@ -2677,9 +2735,10 @@
             // 
             // tbSmtpPort
             // 
-            tbSmtpPort.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            tbSmtpPort.Font = new Font("Segoe UI", 8.25F);
             tbSmtpPort.Location = new Point(104, 49);
             tbSmtpPort.Name = "tbSmtpPort";
+            tbSmtpPort.PlaceholderText = "465";
             tbSmtpPort.Size = new Size(120, 22);
             tbSmtpPort.TabIndex = 71;
             tbSmtpPort.KeyPress += Tb_KeyPress;
@@ -2687,7 +2746,7 @@
             // LabelSmtpName
             // 
             LabelSmtpName.AutoSize = true;
-            LabelSmtpName.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelSmtpName.Font = new Font("Segoe UI", 8F);
             LabelSmtpName.Location = new Point(4, 144);
             LabelSmtpName.Name = "LabelSmtpName";
             LabelSmtpName.Size = new Size(67, 13);
@@ -2707,17 +2766,17 @@
             gbApiDB.Controls.Add(lbDBUser);
             gbApiDB.Controls.Add(tbDBPassword);
             gbApiDB.Controls.Add(lbDBPwd);
-            gbApiDB.Location = new Point(389, 75);
+            gbApiDB.Location = new Point(473, 108);
             gbApiDB.Name = "gbApiDB";
-            gbApiDB.Size = new Size(208, 202);
+            gbApiDB.Size = new Size(220, 299);
             gbApiDB.TabIndex = 81;
             gbApiDB.TabStop = false;
-            gbApiDB.Text = "DB";
+            gbApiDB.Text = "Database";
             // 
             // pbEyeDBPassword
             // 
             pbEyeDBPassword.Image = Properties.Resources.icons8_eye_16;
-            pbEyeDBPassword.Location = new Point(168, 84);
+            pbEyeDBPassword.Location = new Point(189, 83);
             pbEyeDBPassword.Name = "pbEyeDBPassword";
             pbEyeDBPassword.Size = new Size(16, 16);
             pbEyeDBPassword.TabIndex = 83;
@@ -2729,7 +2788,7 @@
             // lbDBServer
             // 
             lbDBServer.AutoSize = true;
-            lbDBServer.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbDBServer.Font = new Font("Segoe UI", 8F);
             lbDBServer.Location = new Point(6, 21);
             lbDBServer.Name = "lbDBServer";
             lbDBServer.Size = new Size(55, 13);
@@ -2740,7 +2799,7 @@
             // cbDBEncrypt
             // 
             cbDBEncrypt.AutoSize = true;
-            cbDBEncrypt.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            cbDBEncrypt.Font = new Font("Segoe UI", 8F);
             cbDBEncrypt.Location = new Point(6, 141);
             cbDBEncrypt.Name = "cbDBEncrypt";
             cbDBEncrypt.Size = new Size(147, 17);
@@ -2751,24 +2810,24 @@
             // 
             // tbDBServer
             // 
-            tbDBServer.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            tbDBServer.Font = new Font("Segoe UI", 8.25F);
             tbDBServer.Location = new Point(86, 17);
             tbDBServer.Name = "tbDBServer";
-            tbDBServer.Size = new Size(100, 22);
+            tbDBServer.Size = new Size(122, 22);
             tbDBServer.TabIndex = 45;
             // 
             // tbDBName
             // 
-            tbDBName.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            tbDBName.Font = new Font("Segoe UI", 8.25F);
             tbDBName.Location = new Point(86, 110);
             tbDBName.Name = "tbDBName";
-            tbDBName.Size = new Size(100, 22);
+            tbDBName.Size = new Size(122, 22);
             tbDBName.TabIndex = 49;
             // 
             // lbDBName
             // 
             lbDBName.AutoSize = true;
-            lbDBName.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbDBName.Font = new Font("Segoe UI", 8F);
             lbDBName.Location = new Point(6, 111);
             lbDBName.Name = "lbDBName";
             lbDBName.Size = new Size(53, 13);
@@ -2778,16 +2837,16 @@
             // 
             // tbDBUser
             // 
-            tbDBUser.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            tbDBUser.Font = new Font("Segoe UI", 8.25F);
             tbDBUser.Location = new Point(86, 49);
             tbDBUser.Name = "tbDBUser";
-            tbDBUser.Size = new Size(100, 22);
+            tbDBUser.Size = new Size(122, 22);
             tbDBUser.TabIndex = 53;
             // 
             // lbDBUser
             // 
             lbDBUser.AutoSize = true;
-            lbDBUser.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbDBUser.Font = new Font("Segoe UI", 8F);
             lbDBUser.Location = new Point(6, 51);
             lbDBUser.Name = "lbDBUser";
             lbDBUser.Size = new Size(47, 13);
@@ -2797,17 +2856,17 @@
             // 
             // tbDBPassword
             // 
-            tbDBPassword.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            tbDBPassword.Font = new Font("Segoe UI", 8.25F);
             tbDBPassword.Location = new Point(86, 80);
             tbDBPassword.Name = "tbDBPassword";
-            tbDBPassword.Size = new Size(100, 22);
+            tbDBPassword.Size = new Size(122, 22);
             tbDBPassword.TabIndex = 57;
             tbDBPassword.UseSystemPasswordChar = true;
             // 
             // lbDBPwd
             // 
             lbDBPwd.AutoSize = true;
-            lbDBPwd.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbDBPwd.Font = new Font("Segoe UI", 8F);
             lbDBPwd.Location = new Point(6, 81);
             lbDBPwd.Name = "lbDBPwd";
             lbDBPwd.Size = new Size(73, 13);
@@ -2817,35 +2876,115 @@
             // 
             // gbApiSettings
             // 
+            gbApiSettings.Controls.Add(tbShopBalance);
+            gbApiSettings.Controls.Add(lbShopBalance);
+            gbApiSettings.Controls.Add(tbProxyPort);
+            gbApiSettings.Controls.Add(label4);
+            gbApiSettings.Controls.Add(tbTrustProxyHosts);
+            gbApiSettings.Controls.Add(lbTrustProxyHost);
+            gbApiSettings.Controls.Add(cbTrustProxy);
             gbApiSettings.Controls.Add(tbApiPort);
             gbApiSettings.Controls.Add(cbHelmet);
             gbApiSettings.Controls.Add(lbApiPort);
-            gbApiSettings.Controls.Add(tbAuthPort);
-            gbApiSettings.Controls.Add(lbAuthPort);
-            gbApiSettings.Controls.Add(tbBillingPort);
-            gbApiSettings.Controls.Add(lbBillingPort);
+            gbApiSettings.Controls.Add(tbUsaPort);
+            gbApiSettings.Controls.Add(lbUsaPort);
+            gbApiSettings.Controls.Add(tbJpnPort);
+            gbApiSettings.Controls.Add(lbJpnPort);
             gbApiSettings.Controls.Add(tbTimeZone);
             gbApiSettings.Controls.Add(lbTimezone);
-            gbApiSettings.Location = new Point(178, 75);
+            gbApiSettings.Location = new Point(178, 108);
             gbApiSettings.Name = "gbApiSettings";
-            gbApiSettings.Size = new Size(200, 202);
+            gbApiSettings.Size = new Size(289, 299);
             gbApiSettings.TabIndex = 80;
             gbApiSettings.TabStop = false;
             gbApiSettings.Text = "API";
             // 
+            // tbShopBalance
+            // 
+            tbShopBalance.Font = new Font("Segoe UI", 8.25F);
+            tbShopBalance.Location = new Point(132, 172);
+            tbShopBalance.Name = "tbShopBalance";
+            tbShopBalance.PlaceholderText = "0";
+            tbShopBalance.Size = new Size(136, 22);
+            tbShopBalance.TabIndex = 62;
+            tbShopBalance.KeyPress += Tb_KeyPress;
+            // 
+            // lbShopBalance
+            // 
+            lbShopBalance.AutoSize = true;
+            lbShopBalance.Font = new Font("Segoe UI", 8F);
+            lbShopBalance.Location = new Point(3, 176);
+            lbShopBalance.Name = "lbShopBalance";
+            lbShopBalance.Size = new Size(108, 13);
+            lbShopBalance.TabIndex = 63;
+            lbShopBalance.Text = "Initial Shop Balance";
+            toolTip.SetToolTip(lbShopBalance, "Set the initial balance value of In-game Shop account on user registration.");
+            // 
+            // tbProxyPort
+            // 
+            tbProxyPort.Font = new Font("Segoe UI", 8.25F);
+            tbProxyPort.Location = new Point(132, 111);
+            tbProxyPort.Name = "tbProxyPort";
+            tbProxyPort.PlaceholderText = "8090";
+            tbProxyPort.Size = new Size(135, 22);
+            tbProxyPort.TabIndex = 60;
+            tbProxyPort.KeyPress += Tb_KeyPress;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 8F);
+            label4.Location = new Point(3, 111);
+            label4.Name = "label4";
+            label4.Size = new Size(58, 13);
+            label4.TabIndex = 61;
+            label4.Text = "Proxy Port";
+            toolTip.SetToolTip(label4, "# The port for receiving connections from the proxy server (JPN).");
+            // 
+            // tbTrustProxyHosts
+            // 
+            tbTrustProxyHosts.Font = new Font("Segoe UI", 8.25F);
+            tbTrustProxyHosts.Location = new Point(94, 234);
+            tbTrustProxyHosts.Name = "tbTrustProxyHosts";
+            tbTrustProxyHosts.Size = new Size(182, 22);
+            tbTrustProxyHosts.TabIndex = 58;
+            // 
+            // lbTrustProxyHost
+            // 
+            lbTrustProxyHost.AutoSize = true;
+            lbTrustProxyHost.Font = new Font("Segoe UI", 8F);
+            lbTrustProxyHost.Location = new Point(132, 214);
+            lbTrustProxyHost.Name = "lbTrustProxyHost";
+            lbTrustProxyHost.Size = new Size(94, 13);
+            lbTrustProxyHost.TabIndex = 59;
+            lbTrustProxyHost.Text = "Trust Proxy Hosts";
+            toolTip.SetToolTip(lbTrustProxyHost, resources.GetString("lbTrustProxyHost.ToolTip"));
+            // 
+            // cbTrustProxy
+            // 
+            cbTrustProxy.AutoSize = true;
+            cbTrustProxy.Location = new Point(4, 234);
+            cbTrustProxy.Name = "cbTrustProxy";
+            cbTrustProxy.Size = new Size(84, 19);
+            cbTrustProxy.TabIndex = 57;
+            cbTrustProxy.Text = "Trust Proxy";
+            toolTip.SetToolTip(cbTrustProxy, resources.GetString("cbTrustProxy.ToolTip"));
+            cbTrustProxy.UseVisualStyleBackColor = true;
+            // 
             // tbApiPort
             // 
-            tbApiPort.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            tbApiPort.Location = new Point(76, 17);
+            tbApiPort.Font = new Font("Segoe UI", 8.25F);
+            tbApiPort.Location = new Point(132, 18);
             tbApiPort.Name = "tbApiPort";
-            tbApiPort.Size = new Size(100, 22);
+            tbApiPort.PlaceholderText = "80";
+            tbApiPort.Size = new Size(135, 22);
             tbApiPort.TabIndex = 43;
             tbApiPort.KeyPress += Tb_KeyPress;
             // 
             // cbHelmet
             // 
             cbHelmet.AutoSize = true;
-            cbHelmet.Location = new Point(8, 141);
+            cbHelmet.Location = new Point(4, 208);
             cbHelmet.Name = "cbHelmet";
             cbHelmet.Size = new Size(82, 19);
             cbHelmet.TabIndex = 37;
@@ -2856,7 +2995,7 @@
             // lbApiPort
             // 
             lbApiPort.AutoSize = true;
-            lbApiPort.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbApiPort.Font = new Font("Segoe UI", 8F);
             lbApiPort.Location = new Point(3, 21);
             lbApiPort.Name = "lbApiPort";
             lbApiPort.Size = new Size(47, 13);
@@ -2864,59 +3003,62 @@
             lbApiPort.Text = "API Port";
             toolTip.SetToolTip(lbApiPort, "The port number for receiving connections");
             // 
-            // tbAuthPort
+            // tbUsaPort
             // 
-            tbAuthPort.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            tbAuthPort.Location = new Point(76, 49);
-            tbAuthPort.Name = "tbAuthPort";
-            tbAuthPort.Size = new Size(100, 22);
-            tbAuthPort.TabIndex = 47;
-            tbAuthPort.KeyPress += Tb_KeyPress;
+            tbUsaPort.Font = new Font("Segoe UI", 8.25F);
+            tbUsaPort.Location = new Point(132, 50);
+            tbUsaPort.Name = "tbUsaPort";
+            tbUsaPort.PlaceholderText = "8070";
+            tbUsaPort.Size = new Size(135, 22);
+            tbUsaPort.TabIndex = 47;
+            tbUsaPort.KeyPress += Tb_KeyPress;
             // 
-            // lbAuthPort
+            // lbUsaPort
             // 
-            lbAuthPort.AutoSize = true;
-            lbAuthPort.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            lbAuthPort.Location = new Point(3, 51);
-            lbAuthPort.Name = "lbAuthPort";
-            lbAuthPort.Size = new Size(56, 13);
-            lbAuthPort.TabIndex = 48;
-            lbAuthPort.Text = "Auth Port";
-            toolTip.SetToolTip(lbAuthPort, " The port number for the Auth API");
+            lbUsaPort.AutoSize = true;
+            lbUsaPort.Font = new Font("Segoe UI", 8F);
+            lbUsaPort.Location = new Point(3, 51);
+            lbUsaPort.Name = "lbUsaPort";
+            lbUsaPort.Size = new Size(50, 13);
+            lbUsaPort.TabIndex = 48;
+            lbUsaPort.Text = "Usa Port";
+            toolTip.SetToolTip(lbUsaPort, "# The port for receiving connections for the Auth/Billing API (USA).");
             // 
-            // tbBillingPort
+            // tbJpnPort
             // 
-            tbBillingPort.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            tbBillingPort.Location = new Point(76, 80);
-            tbBillingPort.Name = "tbBillingPort";
-            tbBillingPort.Size = new Size(100, 22);
-            tbBillingPort.TabIndex = 51;
-            tbBillingPort.KeyPress += Tb_KeyPress;
+            tbJpnPort.Font = new Font("Segoe UI", 8.25F);
+            tbJpnPort.Location = new Point(132, 81);
+            tbJpnPort.Name = "tbJpnPort";
+            tbJpnPort.PlaceholderText = "8080";
+            tbJpnPort.Size = new Size(135, 22);
+            tbJpnPort.TabIndex = 51;
+            tbJpnPort.KeyPress += Tb_KeyPress;
             // 
-            // lbBillingPort
+            // lbJpnPort
             // 
-            lbBillingPort.AutoSize = true;
-            lbBillingPort.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            lbBillingPort.Location = new Point(3, 81);
-            lbBillingPort.Name = "lbBillingPort";
-            lbBillingPort.Size = new Size(63, 13);
-            lbBillingPort.TabIndex = 52;
-            lbBillingPort.Text = "Billing Port";
-            toolTip.SetToolTip(lbBillingPort, "The port number for the Billing API");
+            lbJpnPort.AutoSize = true;
+            lbJpnPort.Font = new Font("Segoe UI", 8F);
+            lbJpnPort.Location = new Point(3, 81);
+            lbJpnPort.Name = "lbJpnPort";
+            lbJpnPort.Size = new Size(49, 13);
+            lbJpnPort.TabIndex = 52;
+            lbJpnPort.Text = "Jpn Port";
+            toolTip.SetToolTip(lbJpnPort, "# The port for receiving connections for the Auth/Billing API (JPN).");
             // 
             // tbTimeZone
             // 
-            tbTimeZone.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            tbTimeZone.Location = new Point(76, 110);
+            tbTimeZone.Font = new Font("Segoe UI", 8.25F);
+            tbTimeZone.Location = new Point(132, 141);
             tbTimeZone.Name = "tbTimeZone";
-            tbTimeZone.Size = new Size(100, 22);
+            tbTimeZone.PlaceholderText = "UTC";
+            tbTimeZone.Size = new Size(135, 22);
             tbTimeZone.TabIndex = 55;
             // 
             // lbTimezone
             // 
             lbTimezone.AutoSize = true;
-            lbTimezone.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            lbTimezone.Location = new Point(3, 111);
+            lbTimezone.Font = new Font("Segoe UI", 8F);
+            lbTimezone.Location = new Point(3, 145);
             lbTimezone.Name = "lbTimezone";
             lbTimezone.Size = new Size(56, 13);
             lbTimezone.TabIndex = 56;
@@ -2925,23 +3067,36 @@
             // 
             // grbApiLog
             // 
+            grbApiLog.Controls.Add(cbLogIPAddresses);
             grbApiLog.Controls.Add(cbLogAuthConsole);
             grbApiLog.Controls.Add(lbLogLevel);
             grbApiLog.Controls.Add(cbLogBillingConsole);
             grbApiLog.Controls.Add(cbLogAccountConsole);
             grbApiLog.Controls.Add(cbLogMailerConsole);
             grbApiLog.Controls.Add(cmbLogLevel);
-            grbApiLog.Location = new Point(6, 75);
+            grbApiLog.Location = new Point(6, 108);
             grbApiLog.Name = "grbApiLog";
-            grbApiLog.Size = new Size(159, 202);
+            grbApiLog.Size = new Size(159, 299);
             grbApiLog.TabIndex = 79;
             grbApiLog.TabStop = false;
             grbApiLog.Text = "Logging";
             // 
+            // cbLogIPAddresses
+            // 
+            cbLogIPAddresses.AutoSize = true;
+            cbLogIPAddresses.Font = new Font("Segoe UI", 8F);
+            cbLogIPAddresses.Location = new Point(5, 170);
+            cbLogIPAddresses.Name = "cbLogIPAddresses";
+            cbLogIPAddresses.Size = new Size(112, 17);
+            cbLogIPAddresses.TabIndex = 79;
+            cbLogIPAddresses.Text = "Log IP Addresses";
+            toolTip.SetToolTip(cbLogIPAddresses, "Log IP addresses");
+            cbLogIPAddresses.UseVisualStyleBackColor = true;
+            // 
             // cbLogAuthConsole
             // 
             cbLogAuthConsole.AutoSize = true;
-            cbLogAuthConsole.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            cbLogAuthConsole.Font = new Font("Segoe UI", 8F);
             cbLogAuthConsole.Location = new Point(5, 51);
             cbLogAuthConsole.Name = "cbLogAuthConsole";
             cbLogAuthConsole.Size = new Size(118, 17);
@@ -2963,7 +3118,7 @@
             // cbLogBillingConsole
             // 
             cbLogBillingConsole.AutoSize = true;
-            cbLogBillingConsole.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            cbLogBillingConsole.Font = new Font("Segoe UI", 8F);
             cbLogBillingConsole.Location = new Point(5, 81);
             cbLogBillingConsole.Name = "cbLogBillingConsole";
             cbLogBillingConsole.Size = new Size(125, 17);
@@ -2975,7 +3130,7 @@
             // cbLogAccountConsole
             // 
             cbLogAccountConsole.AutoSize = true;
-            cbLogAccountConsole.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            cbLogAccountConsole.Font = new Font("Segoe UI", 8F);
             cbLogAccountConsole.Location = new Point(5, 111);
             cbLogAccountConsole.Name = "cbLogAccountConsole";
             cbLogAccountConsole.Size = new Size(135, 17);
@@ -2987,7 +3142,7 @@
             // cbLogMailerConsole
             // 
             cbLogMailerConsole.AutoSize = true;
-            cbLogMailerConsole.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            cbLogMailerConsole.Font = new Font("Segoe UI", 8F);
             cbLogMailerConsole.Location = new Point(5, 141);
             cbLogMailerConsole.Name = "cbLogMailerConsole";
             cbLogMailerConsole.Size = new Size(125, 17);
@@ -3008,8 +3163,8 @@
             // lbGatePort
             // 
             lbGatePort.AutoSize = true;
-            lbGatePort.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            lbGatePort.Location = new Point(637, 29);
+            lbGatePort.Font = new Font("Segoe UI", 8F);
+            lbGatePort.Location = new Point(399, 74);
             lbGatePort.Name = "lbGatePort";
             lbGatePort.Size = new Size(97, 13);
             lbGatePort.TabIndex = 64;
@@ -3018,18 +3173,18 @@
             // 
             // tbGateServerPort
             // 
-            tbGateServerPort.Location = new Point(734, 25);
+            tbGateServerPort.Location = new Point(522, 70);
             tbGateServerPort.Name = "tbGateServerPort";
             tbGateServerPort.PlaceholderText = "50001";
-            tbGateServerPort.Size = new Size(100, 23);
+            tbGateServerPort.Size = new Size(159, 23);
             tbGateServerPort.TabIndex = 63;
             tbGateServerPort.KeyPress += Tb_KeyPress;
             // 
             // lbGateIP
             // 
             lbGateIP.AutoSize = true;
-            lbGateIP.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            lbGateIP.Location = new Point(389, 29);
+            lbGateIP.Font = new Font("Segoe UI", 8F);
+            lbGateIP.Location = new Point(42, 74);
             lbGateIP.Name = "lbGateIP";
             lbGateIP.Size = new Size(85, 13);
             lbGateIP.TabIndex = 60;
@@ -3038,9 +3193,9 @@
             // 
             // tbGateServerIP
             // 
-            tbGateServerIP.Location = new Point(474, 25);
+            tbGateServerIP.Location = new Point(166, 70);
             tbGateServerIP.Name = "tbGateServerIP";
-            tbGateServerIP.Size = new Size(123, 23);
+            tbGateServerIP.Size = new Size(159, 23);
             tbGateServerIP.TabIndex = 59;
             // 
             // tbAPIIP
@@ -3064,23 +3219,24 @@
             // lbApiAddress
             // 
             lbApiAddress.AutoSize = true;
-            lbApiAddress.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbApiAddress.Font = new Font("Segoe UI", 8F);
             lbApiAddress.Location = new Point(43, 29);
             lbApiAddress.Name = "lbApiAddress";
-            lbApiAddress.Size = new Size(121, 13);
+            lbApiAddress.Size = new Size(116, 13);
             lbApiAddress.TabIndex = 34;
-            lbApiAddress.Text = "Public API IP Address*:";
+            lbApiAddress.Text = "Public API IP Address:";
             // 
             // gbApiDir
             // 
             gbApiDir.Controls.Add(btnOpenApiDir);
             gbApiDir.Controls.Add(pbApiDir);
+            gbApiDir.Controls.Add(btnSaveAPI);
             gbApiDir.Controls.Add(btnBrowseAPI);
             gbApiDir.Controls.Add(lbAPIDir);
             gbApiDir.Controls.Add(tbAPIDir);
             gbApiDir.Location = new Point(6, 6);
             gbApiDir.Name = "gbApiDir";
-            gbApiDir.Size = new Size(843, 69);
+            gbApiDir.Size = new Size(943, 69);
             gbApiDir.TabIndex = 41;
             gbApiDir.TabStop = false;
             gbApiDir.Text = "API Directory";
@@ -3108,6 +3264,19 @@
             pbApiDir.TabIndex = 40;
             pbApiDir.TabStop = false;
             // 
+            // btnSaveAPI
+            // 
+            btnSaveAPI.Font = new Font("Segoe UI", 8F);
+            btnSaveAPI.Image = Properties.Resources.icons8_save_32;
+            btnSaveAPI.Location = new Point(805, 19);
+            btnSaveAPI.Name = "btnSaveAPI";
+            btnSaveAPI.Size = new Size(95, 37);
+            btnSaveAPI.TabIndex = 33;
+            btnSaveAPI.Text = "Save";
+            btnSaveAPI.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnSaveAPI.UseVisualStyleBackColor = true;
+            btnSaveAPI.Click += BtnUpdateAPI_Click;
+            // 
             // btnBrowseAPI
             // 
             btnBrowseAPI.Image = Properties.Resources.icons8_browse_folder_32;
@@ -3124,7 +3293,7 @@
             // lbAPIDir
             // 
             lbAPIDir.AutoSize = true;
-            lbAPIDir.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbAPIDir.Font = new Font("Segoe UI", 8F);
             lbAPIDir.Location = new Point(41, 31);
             lbAPIDir.Name = "lbAPIDir";
             lbAPIDir.Size = new Size(80, 13);
@@ -3147,29 +3316,85 @@
             tabStart.Location = new Point(4, 24);
             tabStart.Name = "tabStart";
             tabStart.Padding = new Padding(3);
-            tabStart.Size = new Size(855, 452);
+            tabStart.Size = new Size(955, 497);
             tabStart.TabIndex = 2;
             tabStart.Text = "Start Servers";
             // 
             // gbAPIControls
             // 
+            gbAPIControls.Controls.Add(btnStartAPIPM2All);
+            gbAPIControls.Controls.Add(btnStartAPIPM2Usa);
+            gbAPIControls.Controls.Add(btnStartAPIAll);
+            gbAPIControls.Controls.Add(btnStartAPIUsa);
             gbAPIControls.Controls.Add(btnStopAPIPM2);
-            gbAPIControls.Controls.Add(btnStartAPIPM2);
+            gbAPIControls.Controls.Add(btnStartAPIPM2Jpn);
             gbAPIControls.Controls.Add(btnClearAPILogs);
-            gbAPIControls.Controls.Add(btnStartAPI);
+            gbAPIControls.Controls.Add(btnStartAPIJpn);
             gbAPIControls.Controls.Add(btnStopAPI);
             gbAPIControls.Location = new Point(155, 206);
             gbAPIControls.Name = "gbAPIControls";
-            gbAPIControls.Size = new Size(553, 178);
+            gbAPIControls.Size = new Size(751, 285);
             gbAPIControls.TabIndex = 45;
             gbAPIControls.TabStop = false;
             gbAPIControls.Text = "API";
+            // 
+            // btnStartAPIPM2All
+            // 
+            btnStartAPIPM2All.Image = Properties.Resources.icons8_play_32;
+            btnStartAPIPM2All.Location = new Point(376, 107);
+            btnStartAPIPM2All.Name = "btnStartAPIPM2All";
+            btnStartAPIPM2All.Size = new Size(122, 53);
+            btnStartAPIPM2All.TabIndex = 50;
+            btnStartAPIPM2All.Text = "Start API (All) (PM2)";
+            btnStartAPIPM2All.TextImageRelation = TextImageRelation.ImageBeforeText;
+            toolTip.SetToolTip(btnStartAPIPM2All, "Start API using Process Manager (PM2)");
+            btnStartAPIPM2All.UseVisualStyleBackColor = true;
+            btnStartAPIPM2All.Click += BtnStartAPIPM2All_Click;
+            // 
+            // btnStartAPIPM2Usa
+            // 
+            btnStartAPIPM2Usa.Image = Properties.Resources.icons8_play_32;
+            btnStartAPIPM2Usa.Location = new Point(205, 107);
+            btnStartAPIPM2Usa.Name = "btnStartAPIPM2Usa";
+            btnStartAPIPM2Usa.Size = new Size(122, 53);
+            btnStartAPIPM2Usa.TabIndex = 49;
+            btnStartAPIPM2Usa.Text = "Start API (Usa) (PM2)";
+            btnStartAPIPM2Usa.TextImageRelation = TextImageRelation.ImageBeforeText;
+            toolTip.SetToolTip(btnStartAPIPM2Usa, "Start API using Process Manager (PM2)");
+            btnStartAPIPM2Usa.UseVisualStyleBackColor = true;
+            btnStartAPIPM2Usa.Click += BtnStartAPIPM2Usa_Click;
+            // 
+            // btnStartAPIAll
+            // 
+            btnStartAPIAll.Image = Properties.Resources.icons8_play_32;
+            btnStartAPIAll.Location = new Point(376, 22);
+            btnStartAPIAll.Name = "btnStartAPIAll";
+            btnStartAPIAll.Size = new Size(122, 53);
+            btnStartAPIAll.TabIndex = 48;
+            btnStartAPIAll.Text = "Start API (All)";
+            btnStartAPIAll.TextImageRelation = TextImageRelation.ImageBeforeText;
+            toolTip.SetToolTip(btnStartAPIAll, "Start API for both Jpn/Usa service\r\n");
+            btnStartAPIAll.UseVisualStyleBackColor = true;
+            btnStartAPIAll.Click += BtnStartAPIAll_Click;
+            // 
+            // btnStartAPIUsa
+            // 
+            btnStartAPIUsa.Image = Properties.Resources.icons8_play_32;
+            btnStartAPIUsa.Location = new Point(205, 22);
+            btnStartAPIUsa.Name = "btnStartAPIUsa";
+            btnStartAPIUsa.Size = new Size(122, 53);
+            btnStartAPIUsa.TabIndex = 47;
+            btnStartAPIUsa.Text = "Start API (Usa)";
+            btnStartAPIUsa.TextImageRelation = TextImageRelation.ImageBeforeText;
+            toolTip.SetToolTip(btnStartAPIUsa, "Start API for the Usa service");
+            btnStartAPIUsa.UseVisualStyleBackColor = true;
+            btnStartAPIUsa.Click += BtnStartAPIUsa_Click;
             // 
             // btnStopAPIPM2
             // 
             btnStopAPIPM2.Enabled = false;
             btnStopAPIPM2.Image = Properties.Resources.icons8_shutdown_32;
-            btnStopAPIPM2.Location = new Point(215, 36);
+            btnStopAPIPM2.Location = new Point(539, 107);
             btnStopAPIPM2.Name = "btnStopAPIPM2";
             btnStopAPIPM2.Size = new Size(122, 53);
             btnStopAPIPM2.TabIndex = 46;
@@ -3178,23 +3403,23 @@
             btnStopAPIPM2.UseVisualStyleBackColor = true;
             btnStopAPIPM2.Click += BtnStopAPIPM2_Click;
             // 
-            // btnStartAPIPM2
+            // btnStartAPIPM2Jpn
             // 
-            btnStartAPIPM2.Image = Properties.Resources.icons8_play_32;
-            btnStartAPIPM2.Location = new Point(37, 36);
-            btnStartAPIPM2.Name = "btnStartAPIPM2";
-            btnStartAPIPM2.Size = new Size(122, 53);
-            btnStartAPIPM2.TabIndex = 45;
-            btnStartAPIPM2.Text = "Start API (PM2)";
-            btnStartAPIPM2.TextImageRelation = TextImageRelation.ImageBeforeText;
-            toolTip.SetToolTip(btnStartAPIPM2, "Start API using Process Manager (PM2)");
-            btnStartAPIPM2.UseVisualStyleBackColor = true;
-            btnStartAPIPM2.Click += BtnStartAPIPM2_Click;
+            btnStartAPIPM2Jpn.Image = Properties.Resources.icons8_play_32;
+            btnStartAPIPM2Jpn.Location = new Point(27, 107);
+            btnStartAPIPM2Jpn.Name = "btnStartAPIPM2Jpn";
+            btnStartAPIPM2Jpn.Size = new Size(122, 53);
+            btnStartAPIPM2Jpn.TabIndex = 45;
+            btnStartAPIPM2Jpn.Text = "Start API (Jpn) (PM2)";
+            btnStartAPIPM2Jpn.TextImageRelation = TextImageRelation.ImageBeforeText;
+            toolTip.SetToolTip(btnStartAPIPM2Jpn, "Start API using Process Manager (PM2)");
+            btnStartAPIPM2Jpn.UseVisualStyleBackColor = true;
+            btnStartAPIPM2Jpn.Click += BtnStartAPIPM2Jpn_Click;
             // 
             // btnClearAPILogs
             // 
             btnClearAPILogs.Image = Properties.Resources.icons8_log_32;
-            btnClearAPILogs.Location = new Point(386, 68);
+            btnClearAPILogs.Location = new Point(289, 202);
             btnClearAPILogs.Name = "btnClearAPILogs";
             btnClearAPILogs.Size = new Size(122, 53);
             btnClearAPILogs.TabIndex = 41;
@@ -3204,23 +3429,24 @@
             btnClearAPILogs.UseVisualStyleBackColor = true;
             btnClearAPILogs.Click += BtnClearAPILogs_Click;
             // 
-            // btnStartAPI
+            // btnStartAPIJpn
             // 
-            btnStartAPI.Image = Properties.Resources.icons8_play_32;
-            btnStartAPI.Location = new Point(37, 105);
-            btnStartAPI.Name = "btnStartAPI";
-            btnStartAPI.Size = new Size(122, 53);
-            btnStartAPI.TabIndex = 43;
-            btnStartAPI.Text = "Start API";
-            btnStartAPI.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnStartAPI.UseVisualStyleBackColor = true;
-            btnStartAPI.Click += BtnStartAPI_Click;
+            btnStartAPIJpn.Image = Properties.Resources.icons8_play_32;
+            btnStartAPIJpn.Location = new Point(27, 22);
+            btnStartAPIJpn.Name = "btnStartAPIJpn";
+            btnStartAPIJpn.Size = new Size(122, 53);
+            btnStartAPIJpn.TabIndex = 43;
+            btnStartAPIJpn.Text = "Start API (Jpn)";
+            btnStartAPIJpn.TextImageRelation = TextImageRelation.ImageBeforeText;
+            toolTip.SetToolTip(btnStartAPIJpn, "Start API for the Jpn service");
+            btnStartAPIJpn.UseVisualStyleBackColor = true;
+            btnStartAPIJpn.Click += BtnStartAPIJpn_Click;
             // 
             // btnStopAPI
             // 
             btnStopAPI.Enabled = false;
             btnStopAPI.Image = Properties.Resources.icons8_shutdown_32;
-            btnStopAPI.Location = new Point(215, 105);
+            btnStopAPI.Location = new Point(539, 22);
             btnStopAPI.Name = "btnStopAPI";
             btnStopAPI.Size = new Size(122, 53);
             btnStopAPI.TabIndex = 44;
@@ -3238,7 +3464,7 @@
             gbServerControls.Controls.Add(btnGateLogin);
             gbServerControls.Location = new Point(155, 17);
             gbServerControls.Name = "gbServerControls";
-            gbServerControls.Size = new Size(553, 158);
+            gbServerControls.Size = new Size(751, 158);
             gbServerControls.TabIndex = 42;
             gbServerControls.TabStop = false;
             gbServerControls.Text = "Servers";
@@ -3284,7 +3510,7 @@
             // btnClearServerLogs
             // 
             btnClearServerLogs.Image = Properties.Resources.icons8_log_32;
-            btnClearServerLogs.Location = new Point(386, 88);
+            btnClearServerLogs.Location = new Point(289, 93);
             btnClearServerLogs.Name = "btnClearServerLogs";
             btnClearServerLogs.Size = new Size(122, 53);
             btnClearServerLogs.TabIndex = 40;
@@ -3297,7 +3523,7 @@
             // btnGateLogin
             // 
             btnGateLogin.Image = Properties.Resources.icons8_login_32;
-            btnGateLogin.Location = new Point(205, 88);
+            btnGateLogin.Location = new Point(570, 18);
             btnGateLogin.Name = "btnGateLogin";
             btnGateLogin.RightToLeft = RightToLeft.No;
             btnGateLogin.Size = new Size(122, 53);
@@ -3320,8 +3546,8 @@
             // lbVersion
             // 
             lbVersion.AutoSize = true;
-            lbVersion.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            lbVersion.Location = new Point(775, 491);
+            lbVersion.Font = new Font("Segoe UI", 10F);
+            lbVersion.Location = new Point(871, 536);
             lbVersion.Name = "lbVersion";
             lbVersion.Size = new Size(57, 19);
             lbVersion.TabIndex = 39;
@@ -3333,7 +3559,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(872, 510);
+            ClientSize = new Size(980, 557);
             Controls.Add(lbVersion);
             Controls.Add(tabControlSettings);
             FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -3429,6 +3655,7 @@
             tabApi.ResumeLayout(false);
             gbApiConfig.ResumeLayout(false);
             gbApiConfig.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbGatePort).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbGateIP).EndInit();
             gbApiEmail.ResumeLayout(false);
@@ -3501,7 +3728,7 @@
         private Label lbApiAddress;
         private Button btnSaveAPI;
         private Button btnStopAPI;
-        private Button btnStartAPI;
+        private Button btnStartAPIJpn;
         private GroupBox gbAPIControls;
         private Button btnClearAPILogs;
         private GroupBox gbApiConfig;
@@ -3533,12 +3760,12 @@
         private TextBox tbTimeZone;
         private Label lbDBUser;
         private TextBox tbDBUser;
-        private Label lbBillingPort;
-        private TextBox tbBillingPort;
+        private Label lbJpnPort;
+        private TextBox tbJpnPort;
         private Label lbDBName;
         private TextBox tbDBName;
-        private Label lbAuthPort;
-        private TextBox tbAuthPort;
+        private Label lbUsaPort;
+        private TextBox tbUsaPort;
         private Label lbDBServer;
         private TextBox tbDBServer;
         private ComboBox cmbSmtpEncryption;
@@ -3725,6 +3952,23 @@
         private Label label3;
         private NumericUpDown numBillingIdc;
         private Button btnStopAPIPM2;
-        private Button btnStartAPIPM2;
+        private Button btnStartAPIPM2Jpn;
+        private TextBox tbApiLocalIP;
+        private PictureBox pictureBox2;
+        private Label lbLocalApiAddress;
+        private CheckBox cbTrustProxy;
+        private TextBox tbTrustProxyHosts;
+        private Label lbTrustProxyHost;
+        private TextBox tbSmtpSender;
+        private Label LabelSmtpSender;
+        private TextBox tbProxyPort;
+        private Label label4;
+        private CheckBox cbLogIPAddresses;
+        private TextBox tbShopBalance;
+        private Label lbShopBalance;
+        private Button btnStartAPIAll;
+        private Button btnStartAPIUsa;
+        private Button btnStartAPIPM2All;
+        private Button btnStartAPIPM2Usa;
     }
 }

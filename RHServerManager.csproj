@@ -14,8 +14,8 @@
     <Authors>JuniorDark</Authors>
     <Company>JuniorDark</Company>
     <Product>RH Server Manager</Product>
-    <AssemblyVersion>2.1.0</AssemblyVersion>
-    <FileVersion>2.1.0</FileVersion>
+    <AssemblyVersion>2.2.0</AssemblyVersion>
+    <FileVersion>2.2.0</FileVersion>
     <AssemblyName>RH Server Manager</AssemblyName>
 	<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
   </PropertyGroup>
@@ -35,7 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,11 +47,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Update="Properties\Settings.Designer.cs">
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -59,13 +54,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
 
 </Project>

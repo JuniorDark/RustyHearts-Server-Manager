@@ -5,6 +5,8 @@
 	
 	<area country="usa" auth_url="AUTH_URL" billing_url="BILLING_URL" skip_auth="SKIP_AUTH" skip_billing="SKIP_BILLING" free_cash="FREE_CASH" skip_abuse_nick="SKIP_ABUSE_NICK" channel_limit_count="CHANNEL_LIMIT_COUNT" world_user_limit_count="WORLD_USER_LIMIT_COUNT" second_pass="SECOND_PASS" billing_idc="10101" xtrap_use="0" server_mode="SERVER_MODE" betazone="BETAZONE" />
 	
+	<area country="jpn" auth_url="AUTH_URL" billing_url="BILLING_URL" skip_auth="SKIP_AUTH" skip_billing="SKIP_BILLING" free_cash="FREE_CASH" skip_abuse_nick="SKIP_ABUSE_NICK" channel_limit_count="CHANNEL_LIMIT_COUNT" world_user_limit_count="WORLD_USER_LIMIT_COUNT" second_pass="SECOND_PASS" billing_idc="10101" xtrap_use="0" server_mode="SERVER_MODE" betazone="BETAZONE" />
+	
 	<area country="chn" skip_auth="SKIP_AUTH" skip_billing="SKIP_BILLING" free_cash="FREE_CASH" skip_abuse_nick="SKIP_ABUSE_NICK" channel_limit_count="CHANNEL_LIMIT_COUNT" world_user_limit_count="WORLD_USER_LIMIT_COUNT" second_pass="SECOND_PASS" billing_idc="10101" xtrap_use="0" server_mode="SERVER_MODE" betazone="BETAZONE" />
 	
 </service>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!--
-    Microsoft ResX Schema 
+    Microsoft ResX Schema
 
     Version 2.0
 
@@ -48,7 +48,7 @@
     value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
     value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
@@ -120,6 +120,19 @@
   <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="lbTrustProxyHost.ToolTip" xml:space="preserve">
+    <value># List of IP addresses or subnets that should be trusted as a reverse proxy.
+# Multiple entries can be listed separated by commas.
+# If left empty, headers will be accepted from any IP address (not recommended!).</value>
+  </data>
+  <data name="cbTrustProxy.ToolTip" xml:space="preserve">
+    <value># Allow determination of client IP address based on "X-Forwarded-For" header.
+# This must be enabled if a reverse proxy is used. It is also necessary to specify the reverse
+# proxy IP address in parameter TRUST PROXY HOSTS, otherwise data spoofing is possible.</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>58</value>
   </metadata>

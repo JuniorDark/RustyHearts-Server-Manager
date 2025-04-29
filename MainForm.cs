@@ -1,5 +1,5 @@
-﻿using RHServerManager.Properties;
-using System.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
+using RHServerManager.Properties;
 using System.Diagnostics;
 using System.Net;
 using System.Net.NetworkInformation;
@@ -10,7 +10,7 @@ namespace RHServerManager
 {
     public partial class MainForm : Form
     {
-        public string Url = "https://github.com/JuniorDark/RustyHearts-Server-Manager";
+        private readonly string Url = "https://github.com/JuniorDark/RustyHearts-Server-Manager";
 
         #region Configuration Constants
 
@@ -38,9 +38,9 @@ namespace RHServerManager
         #region Default Configuration Values
 
         private const string DefaultPrivateIP = "127.0.0.1";
-        private const string DefaultServerRegion = "usa";
-        private const string DefaultAuthUrl = "http://localhost:8070/serverApi/auth";
-        private const string DefaultBillingUrl = "http://localhost:8080/serverApi/billing";
+        private const string DefaultServerRegion = "jpn";
+        private const string DefaultAuthUrl = "http://127.0.0.1:8070/Auth";
+        private const string DefaultBillingUrl = "http://127.0.0.1:8070/Billing";
 
         #endregion
 
@@ -62,10 +62,25 @@ namespace RHServerManager
 
         #region Event Handlers
 
+        private readonly Dictionary<Button, string> originalButtonTexts = [];
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             LoadConfiguration();
             CheckProcessStatus();
+
+            foreach (var button in new[]
+            {
+                btnStartAPIJpn,
+                btnStartAPIUsa,
+                btnStartAPIAll,
+                btnStartAPIPM2Jpn,
+                btnStartAPIPM2Usa,
+                btnStartAPIPM2All
+            })
+            {
+                originalButtonTexts[button] = button.Text;
+            }
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -134,7 +149,6 @@ namespace RHServerManager
             }
         }
 
-
         #endregion
 
         #region Utilities
@@ -200,6 +214,44 @@ namespace RHServerManager
         #endregion
 
         #region API
+        private Dictionary<string, Control> GetUiElements()
+        {
+            return new Dictionary<string, Control>
+            {
+                { "API_LISTEN_HOST", tbAPIIP },
+                { "API_LISTEN_PORT", tbApiPort },
+                { "API_LOCAL_LISTEN_HOST", tbApiLocalIP },
+                { "API_USA_PORT", tbUsaPort },
+                { "API_JPN_PORT", tbJpnPort },
+                { "API_PROXY_PORT", tbProxyPort },
+                { "API_ENABLE_HELMET", cbHelmet },
+                { "API_TRUSTPROXY_ENABLE", cbTrustProxy },
+                { "API_TRUSTPROXY_HOSTS", tbTrustProxyHosts },
+                { "TZ", tbTimeZone },
+                { "API_SHOP_INITIAL_BALANCE", tbShopBalance },
+                { "LOG_LEVEL", cmbLogLevel },
+                { "LOG_AUTH_CONSOLE", cbLogAuthConsole },
+                { "LOG_BILLING_CONSOLE", cbLogBillingConsole },
+                { "LOG_ACCOUNT_CONSOLE", cbLogAccountConsole },
+                { "LOG_MAILER_CONSOLE", cbLogMailerConsole },
+                { "LOG_IP_ADDRESSES", cbLogIPAddresses },
+                { "DB_SERVER", tbDBServer },
+                { "DB_DATABASE", tbDBName },
+                { "DB_USER", tbDBUser },
+                { "DB_PASSWORD", tbDBPassword },
+                { "DB_ENCRYPT", cbDBEncrypt },
+                { "GATESERVER_IP", tbGateServerIP },
+                { "GATESERVER_PORT", tbGateServerPort },
+                { "SMTP_HOST", tbSmtpHost },
+                { "SMTP_PORT", tbSmtpPort },
+                { "SMTP_ENCRYPTION", cmbSmtpEncryption },
+                { "SMTP_USERNAME", tbSmtpUsername },
+                { "SMTP_PASSWORD", tbSmtpPassword },
+                { "SMTP_EMAIL_FROM_ADDRESS", tbSmtpSender },
+                { "SMTP_FROM_NAME", tbSmtpFromName }
+            };
+        }
+
         private void LoadAPIConfig()
         {
             try
@@ -254,37 +306,10 @@ namespace RHServerManager
                     return;
                 }
 
-                Dictionary<string, Control> uiElements = new()
-                {
-                    { "PUBLIC_IP", tbAPIIP },
-                    { "PORT", tbApiPort },
-                    { "AUTH_PORT", tbAuthPort },
-                    { "BILLING_PORT", tbBillingPort },
-                    { "ENABLE_HELMET", cbHelmet },
-                    { "TZ", tbTimeZone },
-                    { "LOG_LEVEL", cmbLogLevel },
-                    { "LOG_AUTH_CONSOLE", cbLogAuthConsole },
-                    { "LOG_BILLING_CONSOLE", cbLogBillingConsole },
-                    { "LOG_ACCOUNT_CONSOLE", cbLogAccountConsole },
-                    { "LOG_MAILER_CONSOLE", cbLogMailerConsole },
-                    { "DB_SERVER", tbDBServer },
-                    { "DB_DATABASE", tbDBName },
-                    { "DB_USER", tbDBUser },
-                    { "DB_PASSWORD", tbDBPassword },
-                    { "DB_ENCRYPT", cbDBEncrypt },
-                    { "GATESERVER_IP", tbGateServerIP },
-                    { "GATESERVER_PORT", tbGateServerPort },
-                    { "SMTP_HOST", tbSmtpHost },
-                    { "SMTP_PORT", tbSmtpPort },
-                    { "SMTP_ENCRYPTION", cmbSmtpEncryption },
-                    { "SMTP_USERNAME", tbSmtpUsername },
-                    { "SMTP_PASSWORD", tbSmtpPassword },
-                    { "SMTP_FROMNAME", tbSmtpFromName }
-                };
-
-                string[] logLevels = { "info", "debug", "warn", "error" };
+                var uiElements = GetUiElements();
+                string[] logLevels = ["info", "debug", "warn", "error"];
                 cmbLogLevel.Items.AddRange(logLevels);
-                string[] smtpEncryptionTypes = { "ssl", "tsl" };
+                string[] smtpEncryptionTypes = ["ssl", "tsl"];
                 cmbSmtpEncryption.Items.AddRange(smtpEncryptionTypes);
 
                 using StreamReader reader = new(envFilePath);
@@ -293,12 +318,12 @@ namespace RHServerManager
                 {
                     string? line = reader.ReadLine();
 
-                    if (string.IsNullOrWhiteSpace(line) || line.StartsWith("#"))
+                    if (string.IsNullOrWhiteSpace(line) || line.StartsWith('#'))
                     {
                         continue;
                     }
 
-                    string[] parts = line.Split(new[] { '=' }, 2, StringSplitOptions.RemoveEmptyEntries);
+                    string[] parts = line.Split(['='], 2, StringSplitOptions.RemoveEmptyEntries);
 
                     if (parts.Length == 2 && uiElements.TryGetValue(parts[0].Trim(), out Control? control))
                     {
@@ -329,68 +354,9 @@ namespace RHServerManager
             }
         }
 
-        private void SaveAPIConfig(string envFilePath)
-        {
-            try
-            {
-                Dictionary<string, Control> uiElements = new()
-            {
-                { "PUBLIC_IP", tbAPIIP },
-                { "PORT", tbApiPort },
-                { "AUTH_PORT", tbAuthPort },
-                { "BILLING_PORT", tbBillingPort },
-                { "ENABLE_HELMET", cbHelmet },
-                { "TZ", tbTimeZone },
-                { "LOG_LEVEL", cmbLogLevel },
-                { "LOG_AUTH_CONSOLE", cbLogAuthConsole },
-                { "LOG_BILLING_CONSOLE", cbLogBillingConsole },
-                { "LOG_ACCOUNT_CONSOLE", cbLogAccountConsole },
-                { "LOG_MAILER_CONSOLE", cbLogMailerConsole },
-                { "DB_SERVER", tbDBServer },
-                { "DB_DATABASE", tbDBName },
-                { "DB_USER", tbDBUser },
-                { "DB_PASSWORD", tbDBPassword },
-                { "DB_ENCRYPT", cbDBEncrypt },
-                { "GATESERVER_IP", tbGateServerIP },
-                { "GATESERVER_PORT", tbGateServerPort },
-                { "SMTP_HOST", tbSmtpHost },
-                { "SMTP_PORT", tbSmtpPort },
-                { "SMTP_ENCRYPTION", cmbSmtpEncryption },
-                { "SMTP_USERNAME", tbSmtpUsername },
-                { "SMTP_PASSWORD", tbSmtpPassword },
-                { "SMTP_FROMNAME", tbSmtpFromName }
-            };
-
-                using StreamWriter writer = new(envFilePath);
-
-                foreach (KeyValuePair<string, Control> kvp in uiElements)
-                {
-                    string key = kvp.Key;
-                    Control control = kvp.Value;
-
-                    if (control is TextBox textBox)
-                    {
-                        writer.WriteLine($"{key}={textBox.Text}");
-                    }
-                    else if (control is CheckBox checkBox)
-                    {
-                        writer.WriteLine($"{key}={(checkBox.Checked ? "true" : "false").ToLower()}");
-                    }
-                    else if (control is ComboBox comboBox)
-                    {
-                        writer.WriteLine($"{key}={comboBox.SelectedItem}");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred while saving API settings: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void BtnBrowseAPI_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog folderBrowser = new();
+            using FolderBrowserDialog folderBrowser = new();
 
             if (folderBrowser.ShowDialog() == DialogResult.OK)
             {
@@ -404,59 +370,21 @@ namespace RHServerManager
             try
             {
                 dirAPI = tbAPIDir.Text;
-                apiIP = tbAPIIP.Text;
-                dbServer = tbSQLAddress.Text;
-                dbUser = tbSQLAccount.Text;
-                dbPasswd = tbSQLPassword.Text;
-                string gateServerIP = tbGateServerIP.Text;
-                string gateServerPort = tbGateServerPort.Text;
-
-                List<string> missingFields = new();
-
-                if (string.IsNullOrEmpty(dirAPI))
-                    missingFields.Add("API Folder");
-
-                if (string.IsNullOrEmpty(apiIP))
-                    missingFields.Add("API IP");
-
-                if (string.IsNullOrEmpty(gateServerIP))
-                    missingFields.Add("Gate Server IP");
-
-                if (string.IsNullOrEmpty(gateServerPort))
-                    missingFields.Add("Gate Server Port");
-
-                if (string.IsNullOrEmpty(dbServer))
-                    missingFields.Add("SQL Server");
-
-                if (string.IsNullOrEmpty(dbUser))
-                    missingFields.Add("SQL User");
-
-                if (string.IsNullOrEmpty(dbPasswd))
-                    missingFields.Add("SQL Password");
-
-                if (missingFields.Count > 0)
-                {
-                    string missingFieldsMessage = "Please fill in all required fields (marked with *)\nThe following fields are missing or incomplete:\n";
-                    missingFieldsMessage += string.Join(", ", missingFields);
-
-                    MessageBox.Show(missingFieldsMessage, "Incomplete API Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
                 string envFilePath = Path.Combine(dirAPI, ".env");
-
-                if (!File.Exists(envFilePath))
-                {
-                    MessageBox.Show(".env file not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
 
                 if (!string.IsNullOrEmpty(envFilePath))
                 {
-                    SaveAPIConfig(envFilePath);
+                    string fileName = ".env";
+                    object resource = Resources.env;
+
+                    byte[] resourceBytes = (byte[])resource;
+                    string resourceString = Encoding.UTF8.GetString(resourceBytes);
+                    string? content = ReplaceApiVALUES(resourceString);
+
+                    SaveApiText(fileName, content);
+                    MessageBox.Show("Api settings saved!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                MessageBox.Show("Api settings saved!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -464,87 +392,152 @@ namespace RHServerManager
             }
         }
 
+        private string? ReplaceApiVALUES(string content)
+        {
+            if (string.IsNullOrEmpty(content)) return content;
+
+            var uiElements = GetUiElements();
+
+            foreach (var entry in uiElements)
+            {
+                string key = entry.Key;
+                Control control = entry.Value;
+
+                string placeholder = $"{key}_VALUE";
+
+                string? controlValue = control switch
+                {
+                    TextBox textBox => textBox.Text,
+                    ComboBox comboBox => comboBox.Text,
+                    CheckBox checkBox => checkBox.Checked ? "true" : "false",
+                    _ => null
+                };
+
+                if (controlValue != null)
+                {
+                    content = content.Replace(placeholder, controlValue);
+                }
+            }
+
+            return content;
+        }
+
+        private void SaveApiText(string fileName, string? content)
+        {
+            File.WriteAllText(Path.Combine(dirAPI, fileName), content, Encoding.Default);
+        }
+
         private Process? cmdProcess;
         private System.Windows.Forms.Timer? processCheckTimer;
 
-        private void BtnStartAPI_Click(object sender, EventArgs e)
+        private async void BtnStartAPIJpn_Click(object sender, EventArgs e)
         {
-            dirAPI = tbAPIDir.Text;
+            await StartAPI("Jpn", false);
+        }
 
-            if (!Directory.Exists(dirAPI))
+        private async void BtnStartAPIUsa_Click(object sender, EventArgs e)
+        {
+            await StartAPI("Usa", false);
+        }
+
+        private async void BtnStartAPIAll_Click(object sender, EventArgs e)
+        {
+            await StartAPI("All", false);
+        }
+
+        private async void BtnStopAPI_Click(object sender, EventArgs e)
+        {
+            await StopAPI(false);
+        }
+
+        private async void BtnStartAPIPM2Jpn_Click(object sender, EventArgs e)
+        {
+            await StartAPI("Jpn", true);
+        }
+
+        private async void BtnStartAPIPM2Usa_Click(object sender, EventArgs e)
+        {
+            await StartAPI("Usa", true);
+        }
+
+        private async void BtnStartAPIPM2All_Click(object sender, EventArgs e)
+        {
+            await StartAPI("All", true);
+        }
+
+        private async void BtnStopAPIPM2_Click(object sender, EventArgs e)
+        {
+            await StopAPI(true);
+        }
+
+        private async Task StartAPI(string service, bool usePM2)
+        {
+            if (!Directory.Exists(tbAPIDir.Text))
             {
                 MessageBox.Show("Please select the API folder location", "API folder not found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            StartAPI(false);
-        }
-
-        private void BtnStopAPI_Click(object sender, EventArgs e)
-        {
-            StopAPI(false);
-        }
-
-        private void BtnStartAPIPM2_Click(object sender, EventArgs e)
-        {
-            dirAPI = tbAPIDir.Text;
-
-            if (!Directory.Exists(dirAPI))
-            {
-                MessageBox.Show("Please select the API folder location", "API folder not found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            StartAPI(true);
-        }
-
-        private void BtnStopAPIPM2_Click(object sender, EventArgs e)
-        {
-            StopAPI(true);
-        }
-
-        private void StartAPI(bool usePM2)
-        {
             try
             {
-                UpdateAPIControlsState("Starting...", true, 0, usePM2);
-
-                string batchFilePath;
-                if (usePM2)
+                await Task.Run(() =>
                 {
-                    batchFilePath = Path.Combine(dirAPI, "rh-api_with_pm2.bat");
-                    if (!File.Exists(batchFilePath))
+                    if (InvokeRequired)
                     {
-                        File.WriteAllText(batchFilePath, "@echo off" + Environment.NewLine +
-                            "npx pm2 start src/app.js --name rh-api && npx pm2 logs rh-api");
+                        Invoke(new Action(() => UpdateAPIControlsState("Starting...", true, 0, usePM2)));
                     }
-                }
-                else
-                {
-                    batchFilePath = Path.Combine(dirAPI, "rh-api.bat");
-                    if (!File.Exists(batchFilePath))
+                    else
                     {
-                        File.WriteAllText(batchFilePath, "@echo off" + Environment.NewLine +
-                            "title Rusty Hearts API" + Environment.NewLine +
-                            "node src/app" + Environment.NewLine +
-                            "pause");
+                        UpdateAPIControlsState("Starting...", true, 0, usePM2);
                     }
-                }
 
-                ProcessStartInfo startInfo = new("cmd.exe")
-                {
-                    WorkingDirectory = dirAPI,
-                    Arguments = "/c \"" + batchFilePath + "\"",
-                    UseShellExecute = false
-                };
+                    string batchFilePath = service switch
+                    {
+                        "Jpn" => Path.Combine(dirAPI, "start-JPN.bat"),
+                        "Usa" => Path.Combine(dirAPI, "start-USA.bat"),
+                        "All" => Path.Combine(dirAPI, "start-All.bat"),
+                        _ => throw new ArgumentException($"Invalid service name: {service}")
+                    };
+                    string batchFilePM2Path = service switch
+                    {
+                        "Jpn" => Path.Combine(dirAPI, "start_with_pm2_JPN.bat"),
+                        "Usa" => Path.Combine(dirAPI, "start_with_pm2_USA.bat"),
+                        "All" => Path.Combine(dirAPI, "start_with_pm2_All.bat"),
+                        _ => throw new ArgumentException($"Invalid service name: {service}")
+                    };
 
-                cmdProcess = new Process
-                {
-                    StartInfo = startInfo
-                };
-                cmdProcess.Start();
+                    string batchFileToRun = usePM2 ? batchFilePM2Path : batchFilePath;
 
-                UpdateAPIControlsState("Running...", false, 2000, usePM2);
+                    if (!File.Exists(batchFileToRun))
+                    {
+                        MessageBox.Show($"Batch file not found: {batchFileToRun}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    ProcessStartInfo startInfo = new("cmd.exe")
+                    {
+                        WorkingDirectory = dirAPI,
+                        Arguments = "/c \"" + batchFileToRun + "\"",
+                        UseShellExecute = false
+                    };
+
+                    cmdProcess = new Process
+                    {
+                        StartInfo = startInfo
+                    };
+                    cmdProcess.Start();
+
+                    if (InvokeRequired)
+                    {
+                        Invoke(new Action(() => UpdateAPIControlsState("Running...", false, 2000, usePM2)));
+                    }
+                    else
+                    {
+                        UpdateAPIControlsState("Running...", false, 2000, usePM2);
+                    }
+                    
+                });
+
             }
             catch (Exception ex)
             {
@@ -552,13 +545,20 @@ namespace RHServerManager
             }
         }
 
-        private async void StopAPI(bool usePM2)
+        private async Task StopAPI(bool usePM2)
         {
-            UpdateAPIControlsState("Stopping...", false, 0, usePM2);
-
-            if (usePM2)
+            await Task.Run(() =>
             {
-                await Task.Run(() =>
+                if (InvokeRequired)
+                {
+                    Invoke(new Action(() => UpdateAPIControlsState("Stopping...", false, 0, usePM2)));
+                }
+                else
+                {
+                    UpdateAPIControlsState("Stopping...", false, 0, usePM2);
+                }
+
+                if (usePM2)
                 {
                     if (cmdProcess != null && !cmdProcess.HasExited)
                     {
@@ -566,8 +566,7 @@ namespace RHServerManager
                         cmdProcess.WaitForExit();
                     }
 
-                    // Stop PM2-managed API
-                    ProcessStartInfo stopInfo = new ProcessStartInfo("cmd.exe")
+                    ProcessStartInfo stopInfo = new("cmd.exe")
                     {
                         RedirectStandardInput = true,
                         RedirectStandardOutput = true,
@@ -575,39 +574,63 @@ namespace RHServerManager
                         UseShellExecute = false,
                         CreateNoWindow = true,
                         WorkingDirectory = dirAPI,
-                        Arguments = "/c npx pm2 stop rh-api"
+                        Arguments = "/c npx pm2 stop all"
                     };
 
-                    Process stopProcess = new Process
+                    Process stopProcess = new()
                     {
                         StartInfo = stopInfo
                     };
 
                     stopProcess.Start();
                     stopProcess.WaitForExit();
-                });
-            }
-            else
-            {
-                // Stop regular API
-                if (cmdProcess != null && !cmdProcess.HasExited)
-                {
-                    cmdProcess.CloseMainWindow();
-                    cmdProcess.WaitForExit();
                 }
-            }
+                else
+                {
+                    if (cmdProcess != null && !cmdProcess.HasExited)
+                    {
+                        cmdProcess.CloseMainWindow();
+                        cmdProcess.WaitForExit();
+                    }
+                }
 
-            StopAPITimerAndDispose();
-            UpdateAPIControlsState("Start API", true);
+                StopAPITimerAndDispose();
+
+                if (InvokeRequired)
+                {
+                    Invoke(new Action(() => UpdateAPIControlsState("RestoreOriginalText", true)));
+                }
+                else
+                {
+                    UpdateAPIControlsState("RestoreOriginalText", true);
+                }
+                
+            });
         }
 
         private void UpdateAPIControlsState(string buttonText, bool enable, int timerInterval = 0, bool isPM2 = false)
         {
-            btnStartAPI.Text = buttonText;
-            btnStartAPI.Enabled = enable;
+            var buttons = new[]
+            {
+                btnStartAPIJpn,
+                btnStartAPIUsa,
+                btnStartAPIAll,
+                btnStartAPIPM2Jpn,
+                btnStartAPIPM2Usa,
+                btnStartAPIPM2All
+            };
+
+            foreach (var button in buttons)
+            {
+                if (buttonText == "RestoreOriginalText")
+                    button.Text = originalButtonTexts[button];
+                else
+                    button.Text = buttonText;
+
+                button.Enabled = enable;
+            }
+
             btnStopAPI.Enabled = !enable && !isPM2;
-            btnStartAPIPM2.Text = buttonText;
-            btnStartAPIPM2.Enabled = enable;
             btnStopAPIPM2.Enabled = !enable && isPM2;
             tabApi.Enabled = enable;
             btnClearAPILogs.Enabled = enable;
@@ -628,7 +651,15 @@ namespace RHServerManager
             if (cmdProcess == null || cmdProcess.HasExited)
             {
                 StopAPITimerAndDispose();
-                UpdateAPIControlsState("Start API", true);
+
+                if (InvokeRequired)
+                {
+                    Invoke(new Action(() => UpdateAPIControlsState("RestoreOriginalText", true)));
+                }
+                else
+                {
+                    UpdateAPIControlsState("RestoreOriginalText", true);
+                }
             }
         }
 
@@ -646,79 +677,152 @@ namespace RHServerManager
         {
             try
             {
-                dirServer = tbServerDir.Text;
-                privateIP = tbPrivateIP.Text;
-                publicIP = tbPublicIP.Text;
-                dbServer = tbSQLAddress.Text;
-                dbUser = tbSQLAccount.Text;
-                dbPasswd = tbSQLPassword.Text;
+                FetchServerInputs();
 
-                List<string> missingFields = new();
+                List<string> missingFields = [];
 
-                if (string.IsNullOrEmpty(dirServer))
-                    missingFields.Add("Server Folder");
-
-                if (string.IsNullOrEmpty(privateIP))
-                    missingFields.Add("Private IP");
-
-                if (string.IsNullOrEmpty(publicIP))
-                    missingFields.Add("Public IP");
-
-                if (string.IsNullOrEmpty(dbServer))
-                    missingFields.Add("SQL Server");
-
-                if (string.IsNullOrEmpty(dbUser))
-                    missingFields.Add("SQL User");
-
-                if (string.IsNullOrEmpty(dbPasswd))
-                    missingFields.Add("SQL Password");
+                if (string.IsNullOrEmpty(dirServer)) missingFields.Add("Server Folder");
+                if (string.IsNullOrEmpty(privateIP)) missingFields.Add("Private IP");
+                if (string.IsNullOrEmpty(publicIP)) missingFields.Add("Public IP");
+                if (string.IsNullOrEmpty(dbServer)) missingFields.Add("SQL Server");
+                if (string.IsNullOrEmpty(dbUser)) missingFields.Add("SQL User");
+                if (string.IsNullOrEmpty(dbPasswd)) missingFields.Add("SQL Password");
 
                 if (missingFields.Count > 0)
                 {
-                    string missingFieldsMessage = "Please fill in all required fields (marked with *)\nThe following fields are missing or incomplete:\n";
-                    missingFieldsMessage += string.Join(", ", missingFields);
-
-                    MessageBox.Show(missingFieldsMessage, "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ShowMissingFieldsWarning(missingFields, "Incomplete Information");
                     return;
                 }
 
-                DialogResult result = MessageBox.Show("Save server settings?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
+                if (MessageBox.Show("Save server settings?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    string option = Path.Combine(dirServer, "Option");
-                    if (!Directory.Exists(option)) Directory.CreateDirectory(option);
+                    string optionPath = Path.Combine(dirServer, "Option");
+                    Directory.CreateDirectory(optionPath);
 
-                    string[] fileNames = { "agent.xml", "AGENT_800.xml", "agent_serveroption.xml", "agentmanager_serveroption.xml", "AGENTMANAGER_900.xml", "auction_serveroption.xml", "AUCTION_101.xml", "customoption.xml", "DBC_CHAT_3.xml", "DBC_EMERGENCY_4.xml", "DBC_GAME_1.xml", "DBC_LOG_2.xml", "dbc_serveroption.xml", "dbc_serveroptionlog.xml", "dungeon_serveroption.xml", "DUNGEON_2001.xml", "game_serveroption.xml", "GATE_81.xml", "gate_serveroption.xml", "gm_serveroption.xml", "GM_71.xml", "guild_serveroption.xml", "GUILD_5001.xml", "lobby_serveroption.xml", "LOBBY_21001.xml", "manager_serveroption.xml", "MANAGER_91.xml", "match_serveroption.xml", "MATCH_111.xml", "msg_serveroption.xml", "MSG_61.xml", "pvp_serveroption.xml", "PVP_3003.xml", "server_info.ini", "serveroption.xml" };
-                    object[] resources = { Resources.agent, Resources.AGENT_800, Resources.agent_serveroption, Resources.agentmanager_serveroption, Resources.AGENTMANAGER_900, Resources.auction_serveroption, Resources.AUCTION_101, Resources.customoption, Resources.DBC_CHAT_3, Resources.DBC_EMERGENCY_4, Resources.DBC_GAME_1, Resources.DBC_LOG_2, Resources.dbc_serveroption, Resources.dbc_serveroptionlog, Resources.dungeon_serveroption, Resources.DUNGEON_2001, Resources.game_serveroption, Resources.GATE_81, Resources.gate_serveroption, Resources.gm_serveroption, Resources.GM_71, Resources.guild_serveroption, Resources.GUILD_5001, Resources.lobby_serveroption, Resources.LOBBY_21001, Resources.manager_serveroption, Resources.MANAGER_91, Resources.match_serveroption, Resources.MATCH_111, Resources.msg_serveroption, Resources.MSG_61, Resources.pvp_serveroption, Resources.PVP_3003, Resources.server_info, Resources.serveroption };
+                    string[] fileNames =
+                    [
+                        "agent.xml", "AGENT_800.xml", "agent_serveroption.xml", "agentmanager_serveroption.xml", "AGENTMANAGER_900.xml",
+                        "auction_serveroption.xml", "AUCTION_101.xml", "customoption.xml", "DBC_CHAT_3.xml", "DBC_EMERGENCY_4.xml",
+                        "DBC_GAME_1.xml", "DBC_LOG_2.xml", "dbc_serveroption.xml", "dbc_serveroptionlog.xml", "dungeon_serveroption.xml",
+                        "DUNGEON_2001.xml", "game_serveroption.xml", "GATE_81.xml", "gate_serveroption.xml", "gm_serveroption.xml",
+                        "GM_71.xml", "guild_serveroption.xml", "GUILD_5001.xml", "lobby_serveroption.xml", "LOBBY_21001.xml",
+                        "manager_serveroption.xml", "MANAGER_91.xml", "match_serveroption.xml", "MATCH_111.xml", "msg_serveroption.xml",
+                        "MSG_61.xml", "pvp_serveroption.xml", "PVP_3003.xml", "server_info.ini", "serveroption.xml"
+                    ];
+
+                    object[] resources =
+                    [
+                        Resources.agent, Resources.AGENT_800, Resources.agent_serveroption, Resources.agentmanager_serveroption, Resources.AGENTMANAGER_900,
+                        Resources.auction_serveroption, Resources.AUCTION_101, Resources.customoption, Resources.DBC_CHAT_3, Resources.DBC_EMERGENCY_4,
+                        Resources.DBC_GAME_1, Resources.DBC_LOG_2, Resources.dbc_serveroption, Resources.dbc_serveroptionlog, Resources.dungeon_serveroption,
+                        Resources.DUNGEON_2001, Resources.game_serveroption, Resources.GATE_81, Resources.gate_serveroption, Resources.gm_serveroption,
+                        Resources.GM_71, Resources.guild_serveroption, Resources.GUILD_5001, Resources.lobby_serveroption, Resources.LOBBY_21001,
+                        Resources.manager_serveroption, Resources.MANAGER_91, Resources.match_serveroption, Resources.MATCH_111, Resources.msg_serveroption,
+                        Resources.MSG_61, Resources.pvp_serveroption, Resources.PVP_3003, Resources.server_info, Resources.serveroption
+                    ];
 
                     try
                     {
                         for (int i = 0; i < fileNames.Length; i++)
                         {
-                            string? content = ReplaceOptionVALUES((string)resources[i]);
+                            string? content = ReplaceOptionValues((string)resources[i]);
                             SaveOptionText(fileNames[i], content);
                         }
 
                         SaveConfiguration();
-
                         MessageBox.Show("Options settings saved!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("An error occurred while saving option settings: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("An error occurred while saving option settings:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private string? ReplaceOptionVALUES(string content)
+        private void BtnUpdateDB_Click(object sender, EventArgs e)
         {
-            return content?.Replace(dbServerReplace, dbServer)
+            try
+            {
+                FetchServerInputs();
+                string serverName = tbServerName.Text;
+                List<string> missingFields = [];
+
+                if (string.IsNullOrEmpty(serverName)) missingFields.Add("Server Name");
+                if (string.IsNullOrEmpty(privateIP)) missingFields.Add("Private IP");
+                if (string.IsNullOrEmpty(publicIP)) missingFields.Add("Public IP");
+                if (string.IsNullOrEmpty(dbServer)) missingFields.Add("SQL Server");
+                if (string.IsNullOrEmpty(dbUser)) missingFields.Add("SQL User");
+                if (string.IsNullOrEmpty(dbPasswd)) missingFields.Add("SQL Password");
+
+                if (missingFields.Count > 0)
+                {
+                    ShowMissingFieldsWarning(missingFields, "Incomplete Database Information");
+                    return;
+                }
+
+                if (MessageBox.Show("Save settings to the database?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    string connectionString = $"Data Source={dbServer};Initial Catalog=RustyHearts_Auth;TrustServerCertificate=true;User Id={dbUser};Password={dbPasswd};";
+
+                    try
+                    {
+                        using SqlConnection connection = new(connectionString);
+                        connection.Open();
+
+                        UpdateDatabase(connection, "UPDATE [ServerOption] SET [PublicAddress] = @publicIP WHERE [PublicAddress] != ''", "@publicIP", publicIP);
+                        UpdateDatabase(connection, "UPDATE [ServerOption] SET [PrivateAddress] = @privateIP WHERE [PrivateAddress] != ''", "@privateIP", privateIP);
+                        UpdateDatabase(connection, "UPDATE WorldServer SET Name = @serverName", "@serverName", serverName);
+
+                        MessageBox.Show("Database settings saved!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("Database Error:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnBrowseServer_Click(object sender, EventArgs e)
+        {
+            using FolderBrowserDialog folderBrowser = new();
+            if (folderBrowser.ShowDialog() == DialogResult.OK)
+            {
+                tbServerDir.Text = folderBrowser.SelectedPath;
+            }
+        }
+
+        private void BtnOpenServerDir_Click(object sender, EventArgs e)
+        {
+            OpenFolder(tbServerDir.Text);
+        }
+
+        private void BtnOpenApiDir_Click(object sender, EventArgs e)
+        {
+            OpenFolder(tbAPIDir.Text);
+        }
+
+        private static void OpenFolder(string directory)
+        {
+            if (!string.IsNullOrEmpty(directory))
+            {
+                Process.Start("explorer.exe", directory);
+            }
+        }
+
+        private string? ReplaceOptionValues(string content)
+        {
+            return content?
+                .Replace(dbServerReplace, dbServer)
                 .Replace(dbPasswdReplace, dbPasswd)
                 .Replace(dbUserReplace, dbUser)
                 .Replace(localReplace, privateIP)
@@ -727,128 +831,33 @@ namespace RHServerManager
 
         private void SaveOptionText(string name, string? content)
         {
-            File.WriteAllText(Path.Combine(dirServer, "Option\\" + name), content, Encoding.Default);
-        }
-
-        private void BtnUpdateDB_Click(object sender, EventArgs e)
-        {
-            try
+            if (content != null)
             {
-                dirServer = tbServerDir.Text;
-                privateIP = tbPrivateIP.Text;
-                publicIP = tbPublicIP.Text;
-                dbServer = tbSQLAddress.Text;
-                dbUser = tbSQLAccount.Text;
-                dbPasswd = tbSQLPassword.Text;
-                string serverName = tbServerName.Text;
-
-                List<string> missingFields = new();
-
-                if (string.IsNullOrEmpty(serverName))
-                    missingFields.Add("Server Name");
-
-                if (string.IsNullOrEmpty(privateIP))
-                    missingFields.Add("Private IP");
-
-                if (string.IsNullOrEmpty(publicIP))
-                    missingFields.Add("Public IP");
-
-                if (string.IsNullOrEmpty(dbServer))
-                    missingFields.Add("SQL Server");
-
-                if (string.IsNullOrEmpty(dbUser))
-                    missingFields.Add("SQL User");
-
-                if (string.IsNullOrEmpty(dbPasswd))
-                    missingFields.Add("SQL Password");
-
-                if (missingFields.Count > 0)
-                {
-                    string missingFieldsMessage = "Please fill in all required fields (marked with *)\nThe following fields are missing or incomplete:\n";
-                    missingFieldsMessage += string.Join(", ", missingFields);
-
-                    MessageBox.Show(missingFieldsMessage, "Incomplete Database Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                DialogResult result = MessageBox.Show("Save settings to the database?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
-                {
-                    string connectionString = "Data Source=" + dbServer + ";Initial Catalog=RustyHearts_Auth;User Id=" + dbUser + ";Password=" + dbPasswd + ";";
-
-                    try
-                    {
-                        using SqlConnection connection = new(connectionString);
-                        connection.Open();
-
-                        string cmdPublic = "UPDATE [ServerOption] SET [PublicAddress] = @publicIP WHERE [PublicAddress] != ''";
-
-                        using (SqlCommand command = new(cmdPublic, connection))
-                        {
-                            command.Parameters.AddWithValue("@publicIP", publicIP);
-                            command.ExecuteNonQuery();
-                        }
-                        string cmdPrivate = "UPDATE [ServerOption] SET [PrivateAddress] = @privateIP WHERE [PrivateAddress] != ''";
-
-                        using (SqlCommand command = new(cmdPrivate, connection))
-                        {
-                            command.Parameters.AddWithValue("@privateIP", privateIP);
-                            command.ExecuteNonQuery();
-                        }
-
-                        string cmdWorld = "UPDATE WorldServer SET Name = @serverName";
-
-                        using (SqlCommand updateCommand = new(cmdWorld, connection))
-                        {
-                            updateCommand.Parameters.AddWithValue("@serverName", serverName);
-                            updateCommand.ExecuteNonQuery();
-                        }
-
-                        MessageBox.Show("Database settings saved!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch (SqlException ex)
-                    {
-                        MessageBox.Show("An error occurred while saving database settings: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred while saving database settings: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
-
-        private void BtnBrowseServer_Click(object sender, EventArgs e)
-        {
-            FolderBrowserDialog folderBrowser = new();
-
-            if (folderBrowser.ShowDialog() == DialogResult.OK)
-            {
-                string selectedPath = folderBrowser.SelectedPath;
-                tbServerDir.Text = selectedPath;
+                File.WriteAllText(Path.Combine(dirServer, "Option", name), content, Encoding.Default);
             }
         }
 
-        private void BtnOpenServerDir_Click(object sender, EventArgs e)
+        private void FetchServerInputs()
         {
-            string serverDir = tbServerDir.Text;
-            OpenFolder(serverDir);
+            dirServer = tbServerDir.Text;
+            privateIP = tbPrivateIP.Text;
+            publicIP = tbPublicIP.Text;
+            dbServer = tbSQLAddress.Text;
+            dbUser = tbSQLAccount.Text;
+            dbPasswd = tbSQLPassword.Text;
         }
 
-        private void BtnOpenApiDir_Click(object sender, EventArgs e)
+        private static void ShowMissingFieldsWarning(List<string> missingFields, string caption)
         {
-            string apiDir = tbAPIDir.Text;
-            OpenFolder(apiDir);
+            string message = "Please fill in all required fields (marked with *)\nMissing:\n" + string.Join(", ", missingFields);
+            MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        static public void OpenFolder(string directory)
+        private static void UpdateDatabase(SqlConnection connection, string commandText, string paramName, string paramValue)
         {
-            if (!string.IsNullOrEmpty(directory))
-            {
-                Process.Start("explorer.exe", directory);
-            }
+            using SqlCommand command = new(commandText, connection);
+            command.Parameters.AddWithValue(paramName, paramValue);
+            command.ExecuteNonQuery();
         }
 
         private const string AgentProcessName = "Agent_Release_x64";
@@ -869,7 +878,7 @@ namespace RHServerManager
 
             SetServerButtonsState(true, "Starting...");
 
-            string[] serverProcesses = { AgentProcessName, AgentManagerProcessName };
+            string[] serverProcesses = [AgentProcessName, AgentManagerProcessName];
 
             try
             {
@@ -943,7 +952,7 @@ namespace RHServerManager
             StopServer(Type, tabControlSettings);
         }
 
-        private void StopServer(string Type, TabControl tabControlSettings)
+        private async void StopServer(string Type, TabControl tabControlSettings)
         {
             try
             {
@@ -953,11 +962,29 @@ namespace RHServerManager
 
                 if (result == DialogResult.Yes)
                 {
-                    SetServerButtonsState(true, "Closing...");
-                    string stopServersParameter = Type == "Stop" ? "5" : "9";
-                    StopServers(stopServersParameter);
-                    SetServerButtonsState(false, "Start Servers");
-
+                    await Task.Run(async () =>
+                    {
+                        if (InvokeRequired)
+                        {
+                            Invoke(new Action(() => SetServerButtonsState(true, "Closing...")));
+                        }
+                        else
+                        {
+                            SetServerButtonsState(true, "Closing...");
+                        }
+                        
+                        string stopServersParameter = Type == "Stop" ? "5" : "9";
+                        await StopServers(stopServersParameter);
+                        if (InvokeRequired)
+                        {
+                            Invoke(new Action(() => SetServerButtonsState(false, "Start Servers")));
+                        }
+                        else
+                        {
+                            SetServerButtonsState(false, "Start Servers");
+                        }
+                        
+                    });
                 }
             }
             catch (Exception ex)
@@ -966,42 +993,45 @@ namespace RHServerManager
             }
         }
 
-        private void StopServers(string keyCode)
+        private async Task StopServers(string keyCode)
         {
-            string[] processNames = { AgentProcessName, AgentManagerProcessName, AuctionProcessName };
-            List<Process> processes = new();
-            Process? selectedProcess = null;
-
-            foreach (string processName in processNames)
+            await Task.Run(() =>
             {
-                Process[] processArray = Process.GetProcessesByName(processName);
-                if (processArray.Length > 0)
+                string[] processNames = [AgentProcessName, AgentManagerProcessName, AuctionProcessName];
+                List<Process> processes = [];
+                Process? selectedProcess = null;
+
+                foreach (string processName in processNames)
                 {
-                    processes.Add(processArray[0]);
-                    if (processName == "Agent_Release_x64")
-                        selectedProcess = processArray[0];
+                    Process[] processArray = Process.GetProcessesByName(processName);
+                    if (processArray.Length > 0)
+                    {
+                        processes.Add(processArray[0]);
+                        if (processName == "Agent_Release_x64")
+                            selectedProcess = processArray[0];
+                    }
                 }
-            }
 
-            if (selectedProcess != null)
-            {
-                SetForegroundWindow(selectedProcess.MainWindowHandle);
-                SendKeys.SendWait(keyCode);
-            }
-
-            foreach (Process process in processes)
-            {
-                if (!process.HasExited)
+                if (selectedProcess != null)
                 {
-                    Thread.Sleep(5000);
-                    process.CloseMainWindow();
-                    process.WaitForExit();
-                    process.Dispose();
+                    SetForegroundWindow(selectedProcess.MainWindowHandle);
+                    SendKeys.SendWait(keyCode);
                 }
-            }
+
+                foreach (Process process in processes)
+                {
+                    if (!process.HasExited)
+                    {
+                        Thread.Sleep(5000);
+                        process.CloseMainWindow();
+                        process.WaitForExit();
+                        process.Dispose();
+                    }
+                }
+            });
         }
 
-        private void ClearLogs(string directory, string folderName, string[] fileTypes)
+        private static void ClearLogs(string directory, string folderName, string[] fileTypes)
         {
             if (DialogResult.Yes == MessageBox.Show($"Are you sure you want to delete the {folderName} logs?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
             {
@@ -1011,9 +1041,7 @@ namespace RHServerManager
                     return;
                 }
 
-                string[] files = Directory.GetFiles(directory, "*.*", SearchOption.TopDirectoryOnly)
-                    .Where(file => fileTypes.Any(file.EndsWith))
-                    .ToArray();
+                string[] files = [.. Directory.GetFiles(directory, "*.*", SearchOption.TopDirectoryOnly).Where(file => fileTypes.Any(file.EndsWith))];
 
                 foreach (string file in files)
                 {
@@ -1032,9 +1060,7 @@ namespace RHServerManager
 
                 if (Directory.Exists(pm2LogsDirectory))
                 {
-                    string[] pm2Files = Directory.GetFiles(pm2LogsDirectory, "*.*", SearchOption.TopDirectoryOnly)
-                        .Where(file => fileTypes.Any(file.EndsWith))
-                        .ToArray();
+                    string[] pm2Files = [.. Directory.GetFiles(pm2LogsDirectory, "*.*", SearchOption.TopDirectoryOnly).Where(file => fileTypes.Any(file.EndsWith))];
 
                     foreach (string pm2File in pm2Files)
                     {
@@ -1061,15 +1087,24 @@ namespace RHServerManager
                     }
                 }
 
-                if (Directory.Exists(Path.Combine(directory, "Log")))
+                var logPaths = new[]
                 {
-                    try
+                    Path.Combine(directory, "Log"),
+                    Path.Combine(directory, "logs")
+                };
+
+                foreach (var logPath in logPaths)
+                {
+                    if (Directory.Exists(logPath))
                     {
-                        Directory.Delete(Path.Combine(directory, "Log"), true);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"An error occurred while deleting Log folder: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        try
+                        {
+                            Directory.Delete(logPath, true);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"An error occurred while deleting {Path.GetFileName(logPath)} folder: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
 
@@ -1092,12 +1127,12 @@ namespace RHServerManager
 
         private void BtnClearServerLogs_Click(object sender, EventArgs e)
         {
-            ClearLogs(tbServerDir.Text, "Server", new[] { ".log" });
+            ClearLogs(tbServerDir.Text, "Server", [".log"]);
         }
 
         private void BtnClearAPILogs_Click(object sender, EventArgs e)
         {
-            ClearLogs(tbAPIDir.Text, "API", new[] { ".log" });
+            ClearLogs(tbAPIDir.Text, "API", [".log"]);
         }
 
         private const int SendKeysDelay = 300;
@@ -1130,7 +1165,7 @@ namespace RHServerManager
             }
         }
 
-        private void SendKeysToGameGatewayServer(string keysToSend)
+        private static void SendKeysToGameGatewayServer(string keysToSend)
         {
             foreach (char key in keysToSend)
             {
@@ -1245,7 +1280,7 @@ namespace RHServerManager
         {
             if (!ValidateDatabaseInfo()) return;
 
-            string[] dbNames = { "GMRustyHearts", "RustyHearts", "RustyHearts_Auth", "RustyHearts_Log", "RustyHearts_Account" };
+            string[] dbNames = ["GMRustyHearts", "RustyHearts", "RustyHearts_Auth", "RustyHearts_Log", "RustyHearts_Account"];
             FolderBrowserDialog folderBrowserDialog = new();
 
             if (!ConfirmBackup("backups of the databases", dbNames)) return;
@@ -1288,7 +1323,7 @@ namespace RHServerManager
             dbUser = tbSQLAccount.Text;
             dbPasswd = tbSQLPassword.Text;
 
-            List<string> missingFields = new();
+            List<string> missingFields = [];
 
             if (string.IsNullOrEmpty(dbServer))
                 missingFields.Add("SQL Server");
@@ -1309,17 +1344,17 @@ namespace RHServerManager
             return true;
         }
 
-        private bool ConfirmRestore()
+        private static bool ConfirmRestore()
         {
             return DialogResult.Yes == MessageBox.Show("Are you sure you want to restore the databases? This action is permanent and cannot be undone.", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
         }
 
         private string GetConnectionString()
         {
-            return $"Data Source={dbServer};Initial Catalog=master;User Id={dbUser};Password={dbPasswd};";
+            return $"Data Source={dbServer};Initial Catalog=master;TrustServerCertificate=true;User Id={dbUser};Password={dbPasswd};";
         }
 
-        private bool DatabaseExists(SqlConnection connection, string dbName)
+        private static bool DatabaseExists(SqlConnection connection, string dbName)
         {
             string checkDbExistsSql = "SELECT COUNT(*) FROM master.sys.databases WHERE name = @name";
 
@@ -1330,7 +1365,7 @@ namespace RHServerManager
             return dbExists > 0;
         }
 
-        private void CreateDatabase(SqlConnection connection, string dbName)
+        private static void CreateDatabase(SqlConnection connection, string dbName)
         {
             string createDbSql = $"CREATE DATABASE {dbName}";
 
@@ -1338,7 +1373,7 @@ namespace RHServerManager
             createDbCommand.ExecuteNonQuery();
         }
 
-        private void RestoreDatabase(SqlConnection connection, string dbName, string dbPath)
+        private static void RestoreDatabase(SqlConnection connection, string dbName, string dbPath)
         {
             string dataFilePathSql = $"SELECT physical_name FROM sys.master_files WHERE database_id = DB_ID('{dbName}') AND type_desc = 'ROWS'";
             string logFilePathSql = $"SELECT physical_name FROM sys.master_files WHERE database_id = DB_ID('{dbName}') AND type_desc = 'LOG'";
@@ -1356,13 +1391,13 @@ namespace RHServerManager
             cmdRestore.ExecuteNonQuery();
         }
 
-        private bool ConfirmBackup(string action, string[] dbNames)
+        private static bool ConfirmBackup(string action, string[] dbNames)
         {
             string databaseList = string.Join(", ", dbNames);
             return DialogResult.Yes == MessageBox.Show($"Create {action}: {databaseList}?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
         }
 
-        private void BackupDatabase(SqlConnection connection, string dbName, string backupFilePath)
+        private static void BackupDatabase(SqlConnection connection, string dbName, string backupFilePath)
         {
             string backupSQL = $"BACKUP DATABASE {dbName} TO DISK='{backupFilePath}'";
 
@@ -1386,7 +1421,7 @@ namespace RHServerManager
             btnRestoreDB.Text = "Restore Database";
         }
 
-        private void ShowDatabaseError(string action, SqlException ex)
+        private static void ShowDatabaseError(string action, SqlException ex)
         {
             MessageBox.Show($"An error occurred while {action}: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
@@ -1573,7 +1608,7 @@ namespace RHServerManager
             return Path.Combine(optionDirectory, fileName);
         }
 
-        private bool ValidateFileExists(string filePath, string errorMessage)
+        private static bool ValidateFileExists(string filePath, string errorMessage)
         {
             if (!File.Exists(filePath))
             {
@@ -1583,7 +1618,7 @@ namespace RHServerManager
             return true;
         }
 
-        private void SaveXmlDocument(XmlDocument? xmlDocument, string filePath, Action saveSettings)
+        private static void SaveXmlDocument(XmlDocument? xmlDocument, string filePath, Action saveSettings)
         {
             try
             {
@@ -1600,9 +1635,9 @@ namespace RHServerManager
 
         #region Service XML
 
-        private List<Dictionary<string, string>> serviceSettingsList = new();
-        private Dictionary<string, Dictionary<string, string>> serviceComboBoxMap = new();
-        private Dictionary<string, string> currentServiceSettings = new();
+        private List<Dictionary<string, string>> serviceSettingsList = [];
+        private Dictionary<string, Dictionary<string, string>> serviceComboBoxMap = [];
+        private Dictionary<string, string> currentServiceSettings = [];
 
         private void LoadServiceSettings()
         {
@@ -1650,7 +1685,7 @@ namespace RHServerManager
         {
             foreach (XmlNode serviceNode in serviceNodes)
             {
-                Dictionary<string, string> serviceSettings = new();
+                Dictionary<string, string> serviceSettings = [];
 
                 if (serviceNode.Attributes != null)
                 {
@@ -1736,7 +1771,7 @@ namespace RHServerManager
             cbBetazone.Checked = GetServiceSettingOrDefault(serviceSettings, "betazone", "0") == "1";
         }
 
-        private string GetServiceSettingOrDefault(Dictionary<string, string> serviceSettings, string key, string defaultValue)
+        private static string GetServiceSettingOrDefault(Dictionary<string, string> serviceSettings, string key, string defaultValue)
         {
             return serviceSettings.TryGetValue(key, out string? value) ? value : defaultValue;
         }
@@ -1993,7 +2028,7 @@ namespace RHServerManager
 
         #region Log XML
 
-        private Dictionary<string, XmlNode> logTypeNodes = new();
+        private Dictionary<string, XmlNode> logTypeNodes = [];
 
         private void LoadLogSettings()
         {
@@ -2044,7 +2079,7 @@ namespace RHServerManager
             }
         }
 
-        private int GetLogAttributeAsInt(XmlNode logTypeNode, string attributeName, int defaultValue)
+        private static int GetLogAttributeAsInt(XmlNode logTypeNode, string attributeName, int defaultValue)
         {
             string? attributeValue = logTypeNode.Attributes?[attributeName]?.Value;
             return int.TryParse(attributeValue, out int result) ? result : defaultValue;
@@ -2071,7 +2106,7 @@ namespace RHServerManager
             }
         }
 
-        private void UpdateLogTypeNodeAttribute(XmlNode logTypeNode, string attributeName, string newValue)
+        private static void UpdateLogTypeNodeAttribute(XmlNode logTypeNode, string attributeName, string newValue)
         {
             XmlAttribute? attribute = logTypeNode.Attributes?[attributeName];
 
@@ -2087,7 +2122,7 @@ namespace RHServerManager
 
         #region Class Node
 
-        private Dictionary<string, XmlNode> classNodes = new();
+        private Dictionary<string, XmlNode> classNodes = [];
 
         private void LoadClassSettings()
         {
@@ -2099,7 +2134,7 @@ namespace RHServerManager
             }
 
             XmlNodeList? classNodeList = contentXmlDoc.SelectNodes("//class");
-            classNodes = new Dictionary<string, XmlNode>();
+            classNodes = [];
 
             cmbClass.Items.Clear();
 
@@ -2157,7 +2192,7 @@ namespace RHServerManager
             return attributeValue == "1";
         }
 
-        private string GetAttributeValue(XmlNode node, string attributeName)
+        private static string GetAttributeValue(XmlNode node, string attributeName)
         {
             var attribute = node.Attributes?[attributeName];
 
@@ -2317,7 +2352,7 @@ namespace RHServerManager
             }
         }
 
-        private void LoadNumNodeValue(XmlNode nodeName, string attributeName, NumericUpDown numericUpDown)
+        private static void LoadNumNodeValue(XmlNode nodeName, string attributeName, NumericUpDown numericUpDown)
         {
             if (nodeName != null)
             {
@@ -2436,7 +2471,7 @@ namespace RHServerManager
             }
         }
 
-        private void SaveNumNodeValue(XmlNode node, string attributeName, NumericUpDown numericUpDown)
+        private static void SaveNumNodeValue(XmlNode node, string attributeName, NumericUpDown numericUpDown)
         {
             XmlAttribute? attribute = node.Attributes?[attributeName];
             if (attribute != null)
@@ -2692,22 +2727,22 @@ namespace RHServerManager
 
         #region Dungeon Nodes
 
-        private List<Dictionary<string, string>> dungeonSettingsList = new();
-        private Dictionary<string, Dictionary<string, string>> dungeonComboBoxMap = new();
+        private List<Dictionary<string, string>> dungeonSettingsList = [];
+        private Dictionary<string, Dictionary<string, string>> dungeonComboBoxMap = [];
         private int maxDiffEntries = 4;
 
         private void LoadDungeonSettings()
         {
             XmlNodeList? dungeonNodes = contentXmlDoc.SelectNodes("//dungeon");
 
-            dungeonSettingsList = new List<Dictionary<string, string>>();
-            dungeonComboBoxMap = new Dictionary<string, Dictionary<string, string>>();
+            dungeonSettingsList = [];
+            dungeonComboBoxMap = [];
 
             if (dungeonNodes != null)
             {
                 foreach (XmlNode dungeonNode in dungeonNodes)
                 {
-                    Dictionary<string, string> dungeonSettings = new();
+                    Dictionary<string, string> dungeonSettings = [];
 
                     if (dungeonNode.Attributes != null)
                     {
@@ -2779,7 +2814,7 @@ namespace RHServerManager
             cbUseDungeon.Checked = GetDungeonSettingOrDefault(dungeonSettings, "use", "0") == "1";
         }
 
-        private string GetDungeonSettingOrDefault(Dictionary<string, string> dungeonSettings, string key, string defaultValue)
+        private static string GetDungeonSettingOrDefault(Dictionary<string, string> dungeonSettings, string key, string defaultValue)
         {
             return dungeonSettings.TryGetValue(key, out string? value) ? value : defaultValue;
         }
@@ -2975,7 +3010,7 @@ namespace RHServerManager
 
         #region Helpers
 
-        private void ClearControls(Control control)
+        private static void ClearControls(Control control)
         {
             foreach (Control childControl in control.Controls)
             {

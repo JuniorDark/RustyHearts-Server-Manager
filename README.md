@@ -54,4 +54,4 @@ This project is licensed under the terms found in [`LICENSE-0BSD`](LICENSE).
 
 ## Credits
 The following third-party libraries are used in this project:
-* [System.Data.SqlClient](https://www.nuget.org/packages/System.Data.SqlClient)
+* [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient)

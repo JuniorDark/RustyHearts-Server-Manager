@@ -323,6 +323,16 @@ namespace RHServerManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] env {
+            get {
+                object obj = ResourceManager.GetObject("env", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 1.
         /// </summary>
         internal static string game_gateserver_list {
@@ -879,7 +889,7 @@ namespace RHServerManager.Properties {
         ///	
         ///	&lt;area country=&quot;usa&quot; auth_url=&quot;AUTH_URL&quot; billing_url=&quot;BILLING_URL&quot; skip_auth=&quot;SKIP_AUTH&quot; skip_billing=&quot;SKIP_BILLING&quot; free_cash=&quot;FREE_CASH&quot; skip_abuse_nick=&quot;SKIP_ABUSE_NICK&quot; channel_limit_count=&quot;CHANNEL_LIMIT_COUNT&quot; world_user_limit_count=&quot;WORLD_USER_LIMIT_COUNT&quot; second_pass=&quot;SECOND_PASS&quot; billing_idc=&quot;10101&quot; xtrap_use=&quot;0&quot; server_mode=&quot;SERVER_MODE&quot; betazone=&quot;BETAZONE&quot; /&gt;
         ///	
-        ///	&lt;area country=&quot;chn&quot; skip_auth=&quot;SKIP_AUTH&quot; skip_billing=&quot;SK [rest of string was truncated]&quot;;.
+        ///	&lt;area country=&quot;jpn&quot; auth_url=&quot;AUTH_URL&quot; billing_url=&quot;BILLI [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string service_control {
             get {
